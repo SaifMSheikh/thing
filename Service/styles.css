@@ -24,7 +24,6 @@
     flex: 1; /* This will make the main content expand to fill available space */
   }
   
-  
   @keyframes zoomBackground {
     0% { background-size: 100%; }
     50% { background-size: 120%; } /* Zooms in to 120% */
@@ -32,14 +31,11 @@
 
 }
   .header {
-    background: url('women-gardener.jpg')  no-repeat center center/cover; /* Background image */
-    height: 100vh; /* Full height */
     position: relative; /* Positioning for the overlay */
     display: flex; /* Flexbox layout */
     flex-direction: column; /* Stack children vertically */
     animation: zoomBackground 30s ease-in-out infinite ;    
   }
-
 
   /* Overlay using ::before */
 .header::before {
@@ -49,7 +45,7 @@
   left: 0; /* Start from the left */
   right: 0; /* Extend to the right */
   bottom: 0; /* Extend to the bottom */
-  background-color: rgba(36, 80, 36, 0.5); /* Green color with 0.5 opacity */
+  background-color: rgba(36, 80, 36,0.5); /* Green color with 0.5 opacity */
   z-index: 1; /* Ensure the overlay is above the image */
 }
 
@@ -317,8 +313,10 @@ a{text-decoration:none;}
 			border-radius:30px;
 			padding:20px;
 			margin:0px 20px;
-			overflow:hidden;
+		}
+		.service-item .sub{
 			position:relative;
+			right:5px;
 		}
 		.service-item h2{color:#2F5830;}
 		.service-img{
@@ -330,7 +328,7 @@ a{text-decoration:none;}
 		}
 		.service-img-icon{
 			display:flex;
-			background:linear-gradient(to right,#A9C857 0%,#A9C857 100%);
+			background:#A9C857;
 			border-radius:50%;
 			width:55px;
 			height:55px;
