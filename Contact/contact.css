@@ -382,6 +382,11 @@ body {
     transition: transform 0.3s, box-shadow 0.3s; /* Transition for smooth hover effects */
 }
 
+.contact-icon{
+	width:60px;
+	height:60px;
+}
+
 .light-card {
     background-color: #f4f1e6;
     color: #305a2f;
@@ -430,19 +435,6 @@ body {
 
 #b p {
     color: #f4f1e6;
-}
-
-.phone-icon{
-    background-image: url('./Image/phone-icon.jpg');
-    background-size: cover;
-}
-.email-icon{
-    background-image: url('./Image/email-icon.jpg');
-    background-size: cover;
-}
-.location-icon{
-    background-image: url('./Image/location-icon.jpg');
-    background-size: cover;
 }
 
 /* Responsive Media Queries */
