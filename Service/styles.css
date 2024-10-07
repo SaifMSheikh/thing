@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+  .contact-info{
+    align-content: center;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: rgb(202, 250, 202);
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main {
+    flex: 1; /* This will make the main content expand to fill available space */
+  }
+  
+  
+  @keyframes zoomBackground {
+    0% { background-size: 100%; }
+    50% { background-size: 120%; } /* Zooms in to 120% */
+    100% { background-size: 100%; } /* Zooms in to 120% */
+
+}
+  .header {
+    background: url('women-gardener.jpg')  no-repeat center center/cover; /* Background image */
+    height: 100vh; /* Full height */
+    position: relative; /* Positioning for the overlay */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    animation: zoomBackground 30s ease-in-out infinite ;    
+  }
+
+
+  /* Overlay using ::before */
+.header::before {
+  content: ''; /* Necessary for the overlay */
+  position: absolute; /* Position it absolutely within the header */
+  top: 0; /* Start from the top */
+  left: 0; /* Start from the left */
+  right: 0; /* Extend to the right */
+  bottom: 0; /* Extend to the bottom */
+  background-color: rgba(36, 80, 36, 0.5); /* Green color with 0.5 opacity */
+  z-index: 1; /* Ensure the overlay is above the image */
+}
+
+  .top-bar {
+    background-color: #ece9e0;
+    color: #333;
+    padding: 20px 20px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 2;
+  }
+  
+  .navbar {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 15px 5px;
+    justify-content: space-evenly;
+    
+  }
+  
+  .logo {
+    z-index: 2;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .nav-links {
+    z-index: 2;
+    list-style: none;
+    display: flex;
+    gap: 100px;
+  }
+  .nav-links li a {
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .nav-links li .dropdown {
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .nav-links li a:hover {
+    
+    color: #c3e283;
+  }.fab{
+    z-index: 2;
+    padding: 0px 10px;
+  }
+  .hero {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 700px;
+    padding: 20px;
+  }
+  
+  .tagline {
+    font-size: 18px;
+    padding: 10px 0;
+    font-weight: 400;
+    color: #fff;
+  }
+  .tagline-box{
+    margin: 0px 200px ;
+    border-radius: 25px;
+    border-color: white;
+    border:  3px solid;
+  }
+  
+  h1 {
+    font-size: 65px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  
+  .subtext {
+    margin: 20px 0;
+    font-size: 18px;
+  }
+  
+  .cta-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #a5d549;
+    color: #333;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .cta-btn:hover {
+    background-color: #ece9e0;
+    transform: scale(1.2);
+  }
+
+
+.arrow-circle {
+  margin-right: 2px;
+  background-color: darkgreen; /* Circle background color */
+  color: white; /* Arrow color */
+  width: 20px; /* Size of the circle */
+  height: 20px;
+  text-align: center;
+  padding: 0px 2px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+.arrow{
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  }.dropdown:hover .arrow{
+transform: rotate(90deg) ;
+}
+
+/* Dropdown menu hidden by default */
+.dropdown-menu {
+  border-radius: 25px;
+  
+  display: none; /*Hidden by default*/
+  position: absolute; /* Positioning the dropdown */
+  background-color: #ece9e0; /* Background color */
+  list-style: none; /* Remove list styling */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  min-width: 200px; /* Minimum width of the dropdown */
+  z-index: 2; /* Ensure it appears above other content */
+
+}
+
+.dropdown-menu li a {
+  position: relative;
+  padding: 10px 20px; /* Padding for links */
+  display: block; /* Block-level for clickable area */
+  color: rgb(21, 56, 21);; /* Text color */
+  text-decoration: none; /* No underline */
+}
+
+.dropdown-menu li:hover {
+  background-color: rgb(21, 56, 21); /* Background on hover */
+display: block;
+}
+.dropdown-menu li a:hover {
+  color: white; /* Replace with your desired hover color */
+}
+
+
+
+/* Show dropdown when hovering over the dropdown link or the dropdown menu */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block; /* Show the dropdown */
+}
+.icon-container {
+  display: flex;
+}
+.icon {
+  display: inline-block; /* Ensures the anchor is only as large as the icon */
+ padding: 0px 10px;
+  transition: fill 0.3s ease; /* Smooth color transition */
+ 
+}
+.facebook-icon {
+  fill: #3b5998; /* Facebook color */
+}
+
+.twitter-icon {
+  fill: #1da1f2; /* Twitter (X) color */
+}
+
+.youtube-icon {
+  fill: #ff0000; /* YouTube color */
+}
+
+/* Change color on hover */
+.icon:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon */
+}
+
+.facebook-icon:hover {
+  fill: #2a4275; /* Darker shade for Facebook on hover */
+}
+
+.twitter-icon:hover {
+  fill: #0a8dba; /* Darker shade for Twitter on hover */
+}
+
+.youtube-icon:hover {
+  fill: #cc0000; /* Darker shade for YouTube on hover */
+}
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 36px;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tagline-box{
+      margin: 0px 50px;
+    }
+  }
+
+
+/* CARDS */
+
+a{text-decoration:none;}
+		.main{
+			display:block;
+			text-align:center;
+			white-space:nowrap;
+			font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+			font-size:16px;
+			line-height:1.5;
+			color:#545454;	
+			background-color:#A9C857;
+			background-blend-mode:multiply;
+			background-image:url('img/garden-background.jpeg');
+			background-attachment:fixed;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+		}
+		p.very-large-text{
+			font-size:45px;
+			font-weight:1000;
+			letter-spacing:1px;
+			margin-bottom:0px;
+		}
+		.rounded-border{
+			padding:5px 20px;
+			border:2px solid white;
+			border-radius:50px;
+		}
+		.service-list{
+			display:flex;
+			flex-wrap:wrap;
+			justify-content:center;
+			gap:40px 0px;
+			padding:25px;
+		}
+		.service-item{
+			display:block;
+			background-color:#FFFFFF;
+			width:300px;
+			border-radius:30px;
+			padding:20px;
+			margin:0px 20px;
+			overflow:hidden;
+			position:relative;
+		}
+		.service-item h2{color:#2F5830;}
+		.service-img{
+			background-color:#2F5830;
+			height:200px;
+			width:270px;
+			border-radius:30px;
+
+		}
+		.service-img-icon{
+			display:flex;
+			background:linear-gradient(to right,#A9C857 0%,#A9C857 100%);
+			border-radius:50%;
+			width:55px;
+			height:55px;
+			position:absolute;
+			top:170px;
+			left:220px;
+		}
+		.service-img-caption{
+			text-align:left;
+		}
+		.service-img-caption-tick{
+			vertical-align:middle;
+			margin-bottom:2px;
+			width:20px;
+			height:20px;
+		}
+		.service-button{
+			color:#2F5830;
+			background-color:#A9C857;
+			padding:20px 30px;
+			border-radius:30px;
+		}
+		.inline-dashed-vertical-line{
+			display:inline-block;
+			position:relative;
+			padding-left:2px;
+			padding-right:2px;
+		}
+		.inline-dashed-vertical-line::before{
+			content:'';
+			position:absolute;
+			left:5px;
+			height:1em;
+			border-left:2px dashed #2F5830;
+			transform:translateY(-80%);
+		}
+
+    
+/* Hover effect for scaling the cards */
+.service-item {
+  display: block;
+  background-color: #FFFFFF;
+  width: 300px;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 0px 20px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect for the "Learn More" button */
+.service-button {
+  color: #2F5830;
+  background-color: #A9C857;
+  padding: 20px 30px;
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.service-item:hover .service-button {
+  transform: translateY(-5px);
+}
+
+.service-button:hover{
+  background-color: #ece9e0;
+    transform: scale(1.2);
+}
+
+/*  */
+  /* FOOTER */
+  .footer-content {
+    display: flex;
+    justify-content: center; /* Center the footer content */
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: #2F5830; /* Example dark background */
+    color: #fff; /* Light text color */
+    padding: 20px;
+}
+
+
+.footer-content div {
+    margin-right: 10px;
+}
+
+.social-icons {
+    margin-left: auto;
+}
+
+.social {
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
+}

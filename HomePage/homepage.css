@@ -1,0 +1,256 @@
+.about-us-body {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background-color: #ece9e0;
+    flex-wrap: wrap;
+}
+
+  .expert-care-for-your-lawn-picture {
+    
+    width: 100%;
+    height: 100%; /* You can set this to a specific height if needed */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+    overflow: hidden;
+  }
+
+.left-column {
+    flex: 1;
+    padding: 20px;
+}
+
+.right-column {
+    flex: 1;
+    padding: 20px;
+}
+.about-us-body .tagline-outer-box{
+    display: flex;
+    /* separate div styling for taglinebox in about us page 
+    as it was covering all the space otherwise. Used this
+    to cover the space as much required by the text  */
+}
+.tagline-box-about-us {
+    align-items: center;
+    border: 2px solid green;
+    border-radius: 25px;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+}
+.dashed-line {
+    border-top: 2px dashed #245024; /* Dashed top border */
+    width: 90%;                 /* Full width of the container */
+    height: 1px;                 /* Height of the line */
+    margin: 20px 0;              /* Add margin for spacing */
+}
+
+
+.tagline-about-us span {
+    
+    font-size: 18px;
+    font-weight: 400;
+    color: green;
+}
+
+.about-us-body h1 {
+    font-size: 50px;
+    font-weight:bold;
+    color: #245024;
+}
+
+.about-us-body p {
+    margin:  10px 0px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+.vertical-dashed-line {
+    border-left: 2px dashed green;
+    height: auto;
+    margin: 0 20px;
+}
+
+#b .icon-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.welcome-to-lawn-care-section h1{
+    color: #245024;
+}
+ .icon-box {
+    text-align: center;
+    padding: 20px;
+ }
+
+ .icon-box h3 {
+    font-size: 20px;
+    color: #245024;
+    margin: 10px 0;
+}
+
+ .icon-box p {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+    
+}
+
+#icon .icon {
+    font-size: 40px;
+  background-color: darkgreen; /* Circle background color */
+  color: white; /* Arrow color */
+  border-radius: 25%;
+}
+
+.welcome-to-lawn-care-section{
+overflow: hidden;
+    color: #245024;
+    display: flex;
+    align-items: center;
+flex-grow: 1;
+padding: 40px 20px;
+background-color: #ece9e0;
+flex-direction: column;
+}
+.welcome-to-lawn-care-section .tagline-outer-box{
+    justify-content: center;
+    display: flex;
+  
+}
+
+.welcome-to-lawn-care-section .icons-box-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.welcome-to-lawn-care-section .icons-box{
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-items: center;
+
+}
+.welcome-to-lawn-care-section .icons-box .column{
+ 
+    margin: 10px;
+    flex-direction: column;
+}
+
+/* My */
+.service-cards-section {
+  display: flex;
+  flex-direction: column; /* Aligns the heading and cards vertically */
+  padding: 20px;
+  background: url('./Image/garden-image.jpg') repeat center center; 
+  background-size: cover; /* Ensure the image covers the whole container */
+  position: relative;
+  align-items: center; /* Center content horizontally */
+  color: white;
+}
+
+.service-cards-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(36, 80, 36, 0.5);
+  z-index: 1;
+}
+
+.heading {
+  text-align: center; /* Centers the heading */
+  margin-bottom: 20px; /* Adds space below the heading */
+  z-index: 2; /* Ensure it appears above the overlay */
+}
+
+.heading h1 {
+  font-size: 40px; /* Adjust size as needed */
+  font-weight: bold;
+  color: #fff; /* Adjust color as needed */
+
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 20px; /* Adjust space between cards */
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the cards within the section */
+  z-index: 2; /* Ensure it appears above the overlay */
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  overflow: hidden; /* Ensure content doesn't overflow */
+  z-index: 2;
+}
+
+.card:hover {
+  background-color: #ece9e0;
+  transform: scale(1.02);
+}
+
+.card-image {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-info span {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.dashed-divider {
+  border-left: 1px dashed #666;
+  height: 16px;
+  margin: 0 10px;
+}
+
+.card-title h2 {
+  font-size: 20px;
+  color: #245024;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .service-cards-section {
+    padding: 0px 20px;
+  }
+  .cards-wrapper {
+    flex-direction: column; /* Stack cards on smaller screens */
+  }
+  .card {
+    width: 100%;
+    margin: 10px 0px;
+  }
+}
