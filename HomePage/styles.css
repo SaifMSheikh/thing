@@ -73,10 +73,21 @@ body {
 }
 
 .logo {
-    z-index: 2;
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
+	z-index: 2;
+	font-size: 24px;
+	font-weight: bold;
+	font-size:35px;
+	color: #fff;
+}
+
+.logo-img{
+	border-radius:50%;
+	background-color:#A9C857;
+	color:#2F5830;
+	width:45px;
+	height:45px;
+	float:left;
+	margin-right:5px;
 }
 
 .nav-links {
