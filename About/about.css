@@ -1,29 +1,12 @@
-.about-us-body {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 20px;
-    background-color: #ece9e0;
-    flex-wrap: wrap;
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+   background-color: #ece9e0;
+
 }
 
-  .expert-care-for-your-lawn-picture {
-    
-    width: 100%;
-    height: 100%; /* You can set this to a specific height if needed */
-    object-fit: cover; /* Cover the area while maintaining aspect ratio */
-    overflow: hidden;
-  }
 
-.left-column {
-    flex: 1;
-    padding: 20px;
-}
-
-.right-column {
-    flex: 1;
-    padding: 20px;
-}
-.about-us-body .tagline-outer-box{
+.tagline-outer-box{
     display: flex;
     /* separate div styling for taglinebox in about us page 
     as it was covering all the space otherwise. Used this
@@ -51,94 +34,155 @@
     color: green;
 }
 
-.about-us-body h1 {
-    font-size: 50px;
-    font-weight:bold;
-    color: #245024;
+
+.about-section {
+  background-color: #fff;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.about-us-body p {
-    margin:  10px 0px;
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
+.about-section h3 {
+  color: #888;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.about-section h1 {
+  color: #31a24c; /* Adjust color to match the green in your design */
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.text-box {
+  word-spacing: 1px; /* Adjusted for more natural word spacing */
+  letter-spacing: 0.5px; /* Adds a slight spacing between letters for readability */
+  max-width: 600px;
+  text-align: left;
+  line-height: 1.6; /* Improves readability by increasing space between lines */
+  color: #888;
+  margin: 0 auto; /* Centers the text-box within its parent container */
+  padding: 10px; /* Adds some inner space for better presentation */
 }
 
 
-.vertical-dashed-line {
-    border-left: 2px dashed green;
-    height: auto;
-    margin: 0 20px;
+.info-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
 }
 
-#b .icon-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.card {
+  background-color: #ece9e0;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 150px;
 }
 
-.welcome-to-lawn-care-section h1{
-    color: #245024;
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
 }
- .icon-box {
-    text-align: center;
-    padding: 20px;
- }
-
- .icon-box h3 {
-    font-size: 20px;
-    color: #245024;
-    margin: 10px 0;
+.icon {
+  margin-bottom: 10px;
+  font-size: 48px;
+  color: #31a24c; /* Adjust the color to match your design */
 }
 
- .icon-box p {
-    font-size: 16px;
-    color: #666;
-    margin: 10px 0;
-    
-}
 
-#icon .icon {
-    font-size: 40px;
-  background-color: darkgreen; /* Circle background color */
-  color: white; /* Arrow color */
-  border-radius: 25%;
-}
-
-.welcome-to-lawn-care-section{
-overflow: hidden;
-    color: #245024;
-    display: flex;
-    align-items: center;
-flex-grow: 1;
-padding: 40px 20px;
-background-color: #ece9e0;
-flex-direction: column;
-}
-.welcome-to-lawn-care-section .tagline-outer-box{
-    justify-content: center;
-    display: flex;
+.card h2 {
+  font-size: 18px;
+  color: #888;
+  text-transform: capitalize;
   
 }
 
-.welcome-to-lawn-care-section .icons-box-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.welcome-to-lawn-care-section .icons-box{
-    margin: 10px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    align-items: center;
 
+.why-choose {
+  background-color: #ffffff;
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 40px auto;
+  width: 80%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
-.welcome-to-lawn-care-section .icons-box .column{
- 
-    margin: 10px;
-    flex-direction: column;
+
+.why-choose h3 {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 400;
 }
+
+.why-choose h1 {
+  color: #31a24c;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.why-choose h2 {
+  color: #31a24c;
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.info-cards-why-choose {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-why-choose {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.icon {
+  font-size: 40px;
+  color: #245024;
+  margin-bottom: 15px;
+}
+
+.card-why-choose h2 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.card-why-choose p {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+.card-why-choose:hover{
+  background-color: #ece9e0;
+  transform: scale(1.1);
+}
+
 
 /* My */
 .service-cards-section {
@@ -253,4 +297,19 @@ flex-direction: column;
     width: 100%;
     margin: 10px 0px;
   }
+  
+  .info-cards{
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .info-cards-why-choose {
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-why-choose {
+    max-width: 100%;
+}
 }

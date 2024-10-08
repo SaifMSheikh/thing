@@ -243,6 +243,8 @@ flex-direction: column;
 }
 
 @media (max-width: 768px) {
+  .vertical-dashed-line{
+border-left: #ece9e0;  }
   .service-cards-section {
     padding: 0px 20px;
   }
