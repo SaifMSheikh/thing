@@ -15,7 +15,7 @@
   
   .header {
     color: white;
-    background: url('./Image/women-gardener.jpg') no-repeat center center;
+    background: url('./Image/bg.jpg') no-repeat center center;
     background-size: cover; /* Ensure the image covers the whole container */
     height: 100vh;
     position: relative;
