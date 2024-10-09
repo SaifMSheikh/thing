@@ -32,6 +32,7 @@
 }
   .header {
     position: relative; /* Positioning for the overlay */
+	background-color:#2F5830;
     display: flex; /* Flexbox layout */
     flex-direction: column; /* Stack children vertically */
     animation: zoomBackground 30s ease-in-out infinite ;    
@@ -45,7 +46,6 @@
   left: 0; /* Start from the left */
   right: 0; /* Extend to the right */
   bottom: 0; /* Extend to the bottom */
-  background-color: rgba(36, 80, 36,0.5); /* Green color with 0.5 opacity */
   z-index: 1; /* Ensure the overlay is above the image */
 }
 
@@ -293,7 +293,7 @@ a{text-decoration:none;}
 			color:#545454;	
 			background-color:#A9C857;
 			background-blend-mode:multiply;
-			background-image:url('img/garden-background.jpeg');
+			background-image:url('img/garden-image.jpg');
 			background-attachment:fixed;
 			background-repeat:no-repeat;
 			background-position:center;
@@ -315,7 +315,7 @@ a{text-decoration:none;}
 			flex-wrap:wrap;
 			justify-content:center;
 			gap:40px 0px;
-			padding:25px;
+			padding:25px 0px;
 		}
 		.service-item{
 			display:block;
