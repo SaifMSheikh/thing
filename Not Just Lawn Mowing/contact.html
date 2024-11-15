@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <header class="header" id="header">
+       
+        <nav class="navbar">
+          <div class="logo">
+			  <img src="Image/leaves.svg"class="logo-img">
+			  <span style="vertical-align:auto">LAWNCARE</span>
+		  </div>
+            <!-- Hamburger Icon -->
+            <div class="hamburger-icon">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+              <!-- Sidebar Navigation -->
+              <div class="sidebar">
+                <ul class="nav-links-sidebar">
+                  <li><a href="./homepage.html">Home</a></li>
+                  <li><a href="./about.html">About</a></li>
+                  <li><a href="./service.html">Services</a></li>
+                </ul>
+              </div>
+            </div>
+          <ul class="nav-links">
+            <li><a href="./homepage.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./service.html">Services</a></li>
+          </ul>
+        </nav>
+        <div class="hero">
+          <div class="hero-content">
+            <h1>Contact Us</h1>
+          </div>
+        </div>
+      </header>
+    <div class="contact-container" id="a">
+        <div class="contact-card light-card">
+			<img src="Image/phone.svg"class="contact-icon"/>
+            <h3>(+92) 333 3737157</h3>
+			<p>Quick Service &amp; Expert Support,<br/>Available 24/7!</p>
+            
+        </div>
+
+        <div class="contact-card dark-card" id="b">
+			<img src="Image/mail.svg"style="width:40px;height:40px;margin:10px;0px;"/>
+            <h3>mail@lawn.com</h3>
+			<p>Send Us Your Inquiries.<br/>We'd Love To Here From You!</p>
+        </div>
+
+        <div class="contact-card light-card">
+			<img src="Image/address.svg"class="contact-icon"/>
+			<h3>Sher Shah Rd</h3>
+			<p>Sher Shah Road, Multan Cantt, Multan.<br/>Next To Mcdonalds.</p>
+        </div>
+    </div>
+
+    <div class="container" id="g">
+        <div class="left-section">
+            <h2>Our Working Time</h2>
+            <p>We're here to assist you during our dedicated working hours. Whether you have questions about our services, need support, or want to schedule a consultation, feel free to reach out to us. Our team is committed to providing prompt and helpful responses to ensure you receive the best service possible.</p>
+            <ul class="working-hours">
+                <li><svg class="icon clock-icon"></svg> Monday - Friday : 7AM-5PM</li>
+                <li><svg class="icon clock-icon"></svg> Saturday: 9AM-3PM</li>
+            </ul>
+
+            <h3>Location :</h3>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27592.504850759546!2d71.39883565!3d30.178191249999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b33d4cc95dbb3%3A0xc5dc139a9b62ab2!2sMultan%20Cantonment%2C%20Multan%2C%20Punjab!5e0!3m2!1sen!2s!4v1728032054288!5m2!1sen!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+
+        <div class="right-section">
+          <form id="contactForm" class="contact-form" onsubmit="return validateForm(event)">
+            <!-- Name field -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <span class="error" id="nameError"></span>
+        
+            <!-- Email field -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            <span class="error" id="emailError"></span>
+        
+            <!-- Phone Number field -->
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" placeholder="923XXXXXXXXX" required>
+            <span class="error" id="phoneError"></span>
+        
+            <!-- Service selection with label -->
+            <label for="service" style="text-align: center; display: block;">Select a service from the dropdown</label>
+
+            <div class="dropdown">
+              <button class="dropdown-btn" onclick="toggleDropdown()">Select a service</button>
+              <div class="dropdown-menu" id="dropdown-menu">
+                <label><input type="checkbox" value="lawnmowing"> Lawn Mowing</label>
+                <label><input type="checkbox" value="landscaping"> Landscaping</label>
+                <label><input type="checkbox" value="bbq-sheds"> BBQ & Sheds</label>
+                <label><input type="checkbox" value="spa-pools"> Spa & Pools</label>
+                <label><input type="checkbox" value="planting"> Planting</label>
+              </div>
+            </div>
+        
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <script src="formValidation.js"></script>
+        
+
+    
+        
+      
+    </div>
+   </div>
+   <!-- Footer Section -->
+   <footer>
+    
+    <div class="footer-content">
+        <div>&copy; 2024 LAWNCARE. All Rights Reserved.</div>
+        <div class="social-icons">
+          <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="icon facebook-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M22.675 0h-21.35C.59 0 0 .586 0 1.308v21.384C0 23.414.591 24 1.325 24h11.493v-9.293H9.167v-3.629h3.651V8.413c0-3.618 2.128-5.584 5.423-5.584 1.563 0 3.25.293 3.25.293v3.598h-1.831c-1.794 0-2.358 1.126-2.358 2.286v2.701h4.073l-.651 3.629h-3.422V24h6.703C23.409 24 24 23.414 24 22.692V1.308C24 .586 23.409 0 22.675 0z"/>
+            </svg>
+        </a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="icon twitter-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M23.954 4.569c-.885.392-1.83.655-2.825.775 1.013-.607 1.794-1.566 2.165-2.724-.951.564-2.005.974-3.127 1.194-.895-.952-2.171-1.545-3.591-1.545-2.717 0-4.923 2.205-4.923 4.917 0 .386.045.763.127 1.124-4.092-.205-7.725-2.167-10.155-5.144-.426.727-.666 1.571-.666 2.477 0 1.707.87 3.213 2.188 4.096-.805-.025-1.563-.247-2.228-.616v.062c0 2.387 1.692 4.376 3.935 4.826-.413.112-.848.171-1.296.171-.316 0-.624-.031-.926-.086.624 1.95 2.433 3.374 4.58 3.415-1.677 1.314-3.785 2.095-6.076 2.095-.395 0-.788-.023-1.176-.067 2.177 1.393 4.767 2.208 7.548 2.208 9.055 0 14.003-7.505 14.003-14.003 0-.213-.004-.426-.012-.637.961-.694 1.795-1.562 2.458-2.548z"/>
+            </svg>
+        </a>
+        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube" class="icon youtube-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M23.498 6.186c-.278-1.037-1.078-1.837-2.088-2.087C19.453 4 12 4 12 4s-7.453 0-9.41.099c-1.01.25-1.81 1.05-2.088 2.087C0 8 0 12 0 12s0 4 .502 5.814c.278 1.037 1.078 1.837 2.088 2.087C4.547 20 12 20 12 20s7.453 0 9.41-.099c1.01-.25 1.81-1.05 2.088-2.087C24 16 24 12 24 12s0-4-.502-5.814zm-14.91 8.205V9.65l7.199 2.31-7.199 2.33z"/>
+            </svg>
+        </a>
+        </div>
+    </div>
+</footer>
+ 
+</body>
+</html>

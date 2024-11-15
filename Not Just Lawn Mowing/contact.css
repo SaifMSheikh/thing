@@ -1,0 +1,764 @@
+
+/* HEADER */
+/* Adjusted Zoom animation for background */
+@keyframes zoomBackground {
+    0% {
+      background-size: 100%; /* Start at full size */
+    }
+    50% {
+      background-size: 110%; /* Zoom slightly */
+    }
+    100% {
+      background-size: 100%; /* Return to full size */
+    }
+  }
+  
+  .header {
+    color: white;
+    background: url('./Image/bg.jpg') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the whole container */
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    animation: zoomBackground 30s ease-in-out infinite;
+    background-position: center;
+  }
+  
+  /* Overlay using ::before */
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(36, 80, 36, 0.5);
+    z-index: 1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .header {
+      animation: none; /* Disable zoom animation on tablets for better performance */
+      background-size: cover;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      animation: none; /* Disable zoom on smaller screens */
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  
+  /* Reset styles for all elements */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  #header .header{
+      font-family: Arial, sans-serif;
+      color: black;
+  }
+  
+  
+  
+  .navbar {
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      padding: 15px 5px;
+      justify-content: space-evenly;
+  }
+  
+  .logo {
+    z-index: 2;
+    font-size: 24px;
+    font-weight: bold;
+	font-size:35px;
+    color: #fff;
+  }
+
+  .logo-img{
+	border-radius:50%;
+	background-color:#A9C857;
+	color:#2F5830;
+	width:45px;
+	height:45px;
+	float:left;
+	margin-right:5px;
+  }
+  .nav-links {
+      z-index: 2;
+      list-style: none;
+      display: flex;
+      gap: 100px;
+  }
+  
+  .nav-links li a {
+      z-index: 2;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+  }
+  
+  .nav-links li .dropdown {
+      z-index: 2;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+  }
+  
+  .nav-links li a:hover {
+      color: #c3e283;
+  }
+  
+  /* Additional styles... */
+  
+    .fab{
+      z-index: 2;
+      padding: 0px 10px;
+    }
+    .hero {
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      text-align: center;
+    }
+    
+    .hero-content {
+      max-width: 700px;
+      padding: 20px;
+    }
+    
+    .tagline {
+      font-size: 18px;
+      padding: 10px 0;
+      font-weight: 400;
+      color: #fff;
+    }
+    .tagline-box{
+      margin: 0px 200px ;
+      border-radius: 25px;
+      border-color: white;
+      border:  3px solid;
+    }
+    
+    h1 {
+      font-size: 65px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    
+    .subtext {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #a5d549;
+      color: #333;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: transform 0.3s ease;
+    }
+    
+    .cta-btn:hover {
+      background-color: #ece9e0;
+      transform: scale(1.2);
+    }
+  
+  
+  .arrow-circle {
+    margin-right: 2px;
+    background-color: darkgreen; /* Circle background color */
+    color: white; /* Arrow color */
+    width: 20px; /* Size of the circle */
+    height: 20px;
+    text-align: center;
+    padding: 0px 2px;
+    border-radius: 50%;
+    font-size: 18px;
+  }
+  .arrow{
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+    }.dropdown:hover .arrow{
+  transform: rotate(90deg) ;
+  }
+  
+  /* Dropdown menu hidden by default */
+  .dropdown-menu {
+    border-radius: 25px;
+    
+    display: none; /*Hidden by default*/
+    position: absolute; /* Positioning the dropdown */
+    background-color: #ece9e0; /* Background color */
+    list-style: none; /* Remove list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    min-width: 200px; /* Minimum width of the dropdown */
+    z-index: 2; /* Ensure it appears above other content */
+  
+  }
+  
+  .dropdown-menu li a {
+    position: relative;
+    padding: 10px 20px; /* Padding for links */
+    display: block; /* Block-level for clickable area */
+    color: rgb(21, 56, 21);; /* Text color */
+    text-decoration: none; /* No underline */
+  }
+  
+  .dropdown-menu li:hover {
+    background-color: rgb(21, 56, 21); /* Background on hover */
+  display: block;
+  }
+  .dropdown-menu li a:hover {
+    color: white; /* Replace with your desired hover color */
+  }
+  
+  
+  
+  /* Show dropdown when hovering over the dropdown link or the dropdown menu */
+  .dropdown:hover .dropdown-menu,
+  .dropdown-menu:hover {
+      display: block; /* Show the dropdown */
+  }
+  .icon-container {
+    display: flex;
+  }
+  .icon {
+    display: inline-block; /* Ensures the anchor is only as large as the icon */
+   padding: 0px 10px;
+    transition: fill 0.3s ease; /* Smooth color transition */
+   
+  }
+  
+  /* Change color on hover */
+  .icon:hover {
+    transform: scale(1.1); /* Slightly enlarge the icon */
+  }
+  
+  .facebook-icon:hover {
+    fill: #2a4275; /* Darker shade for Facebook on hover */
+  }
+  
+  .twitter-icon:hover {
+    fill: #0a8dba; /* Darker shade for Twitter on hover */
+  }
+  
+  .youtube-icon:hover {
+    fill: #cc0000; /* Darker shade for YouTube on hover */
+  }
+  
+  .hamburger-icon{
+    display: none;
+  }
+  
+  .sidebar{  
+  display: none;
+  }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+      
+      .tagline-box{
+        margin: 0px 50px;
+      }
+  
+  
+      .navbar{
+        justify-content: space-between;
+      }
+      .hamburger-icon {
+        position: relative;
+        display: flex;                /* Use flexbox to align the lines */
+        flex-direction: column;       /* Stack lines vertically */
+        cursor: pointer;              /* Change cursor on hover */
+        width: 30px;                  /* Set the width for the icon */
+        height: 25px;                 /* Set the height for the icon */
+        margin-right: 20px;          /* Margin from the right */
+        z-index: 2;                   /* Ensure it is above other elements */
+        font-weight: bold; 
+  
+      }
+      .hamburger-icon:hover .sidebar {
+        right: -20px;                     /* Move to visible position */
+     display: block;
+      }
+    
+      
+      .line {
+        height: 10px;                 /* Height of each line */
+        background-color: white;       /* Color of the lines */
+        margin: 4px 0;                /* Space between lines */
+        transition: background-color 0.3s; /* Smooth transition for hover effect */
+      }
+      
+      /* Sidebar Styles */
+      .sidebar {
+        border-radius: 25px;
+        display: none;
+        position: absolute;           /* Absolute positioning */
+        top: 0;                       /* Start from the top */
+        right: -300px;                /* Start hidden off-screen */
+        width: 200px;                 /* Width of the sidebar */
+        background-color:  #ece9e0;       /* Background color of the sidebar */
+        color:  black;                 /* Text color */
+        transition: right 0.3s ease-in-out; /* Smooth transition for the right property */
+        z-index: 1;                   /* Ensure it is below the icon */
+      }
+      
+      /* Show sidebar when hovering over the hamburger icon */
+      .nav-links-sidebar {
+        list-style: none;             /* Remove list styling */
+        padding: 20px;                /* Padding inside sidebar */
+      }
+      
+      .nav-links-sidebar li {
+        margin: 20px 0;               /* Space between links */
+      }
+      
+      .nav-links-sidebar li a { color:  black;                 /* Text color */
+       
+        text-decoration: none;        /* No underline */
+        font-size: 18px;              /* Font size for links */
+        transition: color 0.3s;       /* Smooth transition for hover effect */
+      }
+      
+      .nav-links-sidebar li a:hover {
+        color: #a5d549;               /* Change color on hover */
+      }
+      .nav-links{
+        display: none;
+      }
+      
+    }
+/* body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+/* Contact Card Styles */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 40px;
+    flex-wrap: wrap; /* Ensures cards wrap on smaller screens */
+}
+
+.contact-card {
+    width: 23%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px dashed #8c8c8c;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition for smooth hover effects */
+}
+
+.contact-icon{
+	width:60px;
+	height:60px;
+}
+
+.light-card {
+    background-color: #f4f1e6;
+    color: #305a2f;
+}
+
+.dark-card {
+    background-color: #305a2f;
+    color: #fff;
+}
+
+/* Hover effect on contact card */
+.contact-card:hover {
+    transform: translateY(-10px); /* Lift the card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.contact-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    line-height: 1.5em;
+}
+
+/* Icon Styling */
+#a .icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 20px;
+    background-color: #8c8c8c;
+    border-radius: 50%;
+    transition: transform 0.3s, background-color 0.3s; /* Smooth hover transition */
+}
+
+#a .icon:hover {
+    background-color: #88b04b; /* Change icon background color on hover */
+    transform: scale(1.1); /* Slight scale effect */
+}
+
+#a p {
+    color: #464b46;
+}
+
+#b p {
+    color: #f4f1e6;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+    .contact-card {
+        width: 30%;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-card {
+        width: 100%; /* Full width for small devices */
+    }
+}
+
+/* Main Container for Contact Section */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-section {
+    width: 45%;
+}
+
+.right-section {
+    width: 45%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Headings and Text */
+#g h3 {
+    color: #305a2f;
+    margin-bottom: 20px;
+    font-size: larger;
+}
+
+#g h2 {
+    color: #305a2f;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Working Hours */
+ul.working-hours {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+/* Align icons and text horizontally */
+.working-hours li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #305a2f;
+}
+
+.working-hours .icon {
+    width: 40px;
+    height: 20px;
+    background-size: contain;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.clock-icon {
+    background-image: url('./Image/clock.png');
+}
+
+.cross-icon {
+    background-image: url('./Image/cross.png');
+}
+
+/* Map Styles */
+.map {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+/* Contact Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Adds spacing between form elements */
+  align-items: stretch; /* Aligns all elements in a column */
+  max-width: 400px; /* Set a max-width for the form */
+  margin: 0 auto; /* Centers the form */
+}
+
+/* Input and Textarea Styling */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px dashed #8c8c8c;
+  color: #305a2f;
+  border-radius: 15px;
+  background-color: #f4f1e6;
+  font-size: 1em;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:hover, 
+.contact-form textarea:hover {
+  border-color: #88b04b; /* Change border color on hover */
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #88b04b; /* Change border color on focus */
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-btn {
+  display: inline-flex; /* Use flex to center content */
+  justify-content: center; /* Horizontally center the text */
+  align-items: center; /* Vertically center the text */
+  width: 100%; /* Ensure the button takes full width */
+  padding: 10px;
+  background-color: #88b04b;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1em;
+  text-align: center; /* Center the text inside the button */
+  transition: background-color 0.3s ease;
+}
+
+
+.dropdown-btn:hover {
+  background-color: #76a13a;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #f4f1e6;
+  border: 1px solid #8c8c8c;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* Styling Inside Dropdown */
+.dropdown-menu label {
+  display: block;
+  padding: 5px 0;
+  color: #305a2f;
+  cursor: pointer;
+}
+
+.dropdown-menu label:hover {
+  background-color: #88b04b;
+  color: white;
+}
+
+.dropdown-menu input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Submit Button Styling */
+.contact-form button {
+  align-self: stretch;
+  padding: 12px 0;
+  font-size: 1em;
+  background-color: #88b04b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #76a13a;
+  transform: scale(1.05);
+}
+
+/* Textarea Minimum Height */
+.contact-form textarea {
+  min-height: 100px;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: block;
+}
+
+
+
+/* About Section - Social Icons */
+.about-section {
+    grid-column: span 1;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-start; /* Align left */
+    margin-top: 15px;
+}
+
+/* Contact Info */
+.grid-item {
+    text-align: left;
+}
+
+/* Timings Section */
+.timings-section {
+    grid-column: span 1;
+}
+
+
+/* Footer */
+footer {
+    margin: 0; /* Remove margin */
+    padding: 20px 40px; /* Add 20px padding top and bottom, 40px left and right */
+    background-color: #2F5830;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%; /* Ensure footer spans full width */
+    height: auto; /* Allow height to adjust based on content and padding */
+    min-height: 80px; /* Set a minimum height if you want the footer to be taller */
+}
+
+
+/* Footer content */
+.footer-content {
+    display: flex;
+    justify-content: center; /* Center the footer content */
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+.footer-content div {
+    margin-right: 10px;
+}
+
+.social-icons {
+    margin-left: auto;
+}
+
+.social {
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .social {
+        width: 25px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .grid-container {
+        padding: 20px;
+    }
+
+    .social {
+        width: 20px;
+    }
+}
