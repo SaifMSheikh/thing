@@ -11,7 +11,8 @@
 
 </head>
 <body>
- 
+  <script src='homepage-details.js'></script>
+  <script src='homepage-colors.js'></script>
   <header class="header" id="header">
     <nav class="navbar">
       <div class="logo">
@@ -51,13 +52,14 @@
     </div>
   </header>
 
-  <div class="about-us-body">
+  <div class="about-us-body colors-light">
     <!-- Left Column -->
     <div class="left-column">
+<svg id="color-btn"onclick="toggle_color_scheme()"style="float:right"fill="#A9C857"fill-opacity="0.53"width="30px"height="30px"viewBox="0 0 24 24"xmlns="http://www.w3.org/2000/svg"><path d="M12.022,22a10.017,10.017,0,0,0,9.929-8.632,4.828,4.828,0,0,0-.47-2.895C18.738,5.26,11.019,12.475,11.02,6c0-2.794,0-4-2-4C4,2,2,7.694,2,12A10.011,10.011,0,0,0,12.022,22ZM15.5,12A2.5,2.5,0,1,1,13,14.5,2.5,2.5,0,0,1,15.5,12ZM9,16.5A1.5,1.5,0,1,1,7.5,15,1.5,1.5,0,0,1,9,16.5ZM6.5,6A1.5,1.5,0,1,1,5,7.5,1.5,1.5,0,0,1,6.5,6Zm-1,4.5A1.5,1.5,0,1,1,4,12,1.5,1.5,0,0,1,5.5,10.5Z"/></svg>
       <div class="tagline-outer-box">
         <div class="tagline-box-about-us">
           <div class="tagline-about-us">
-            <span>For a Greener Yard</span>
+            <span style="color:var(--col-accent)">For A Greener Yard</span>
           </div>
         </div>
       </div>
@@ -68,7 +70,8 @@
         It enhances the beauty of your outdoor space, providing a serene backdrop for relaxation and recreation. Lush greenery not only promotes mental well-being but also contributes to cleaner air and a healthier ecosystem. A well-kept lawn invites 
         nature, offering a tranquil retreat where you can unwind and connect with the outdoors.
       </p>
-      <a href="/About/about.html" class="cta-btn"><span class="arrow-circle">&#10132;</span> Learn More </a>
+      <!--a href="/About/about.html" class="cta-btn"><span class="arrow-circle">&#10132;</span> Learn More </a-->
+	  <span class='show-btn'onclick='toggle_details()'>Show More</span>
     </div>
   
     <!-- Vertical Dashed Line -->
