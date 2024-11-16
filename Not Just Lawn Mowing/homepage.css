@@ -22,6 +22,7 @@
     padding: 40px 20px;
     background-color:var(--col-background);
     flex-wrap: wrap;
+	transition:all 0.5s linear;
 }
 
   .expert-care-for-your-lawn-picture {
