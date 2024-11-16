@@ -3,7 +3,6 @@
 	--img-background:url('./Image/sun.svg');
 	--col-background:#ece9e0;
 	--col-header:#245024;
-	--col-button:#8c8980;
 	--col-accent:green;
 	--col-text:#666;
 }
@@ -12,7 +11,6 @@
 	--img-background:url('./Image/moon.svg');
 	--col-background:#2f2f2f;
 	--col-header:#649064;
-	--col-button:#5f5f5f;
 	--col-accent:var(--col-header);
 	--col-text:#888;
 }
@@ -25,8 +23,8 @@
 	transition:all 0.5s linear;
 }
 
+
   .expert-care-for-your-lawn-picture {
-    
     width: 100%;
     height: 100%; /* You can set this to a specific height if needed */
     object-fit: cover; /* Cover the area while maintaining aspect ratio */
@@ -45,6 +43,11 @@
 	background-image:var(--img-background);
 	background-repeat:no-repeat;
 	background-position:center;
+}
+@media(max-width:760px){
+	.left-column,.right-column{
+		flex:1 1 100%;
+	}
 }
 .about-us-body .tagline-outer-box{
     display: flex;
@@ -307,4 +310,38 @@ border-left: #ece9e0;  }
     width: 100%;
     margin: 10px 0px;
   }
+}
+
+.style-btn-super{
+	display:flex;
+	justify-content:center;
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:7px;
+}
+
+.style-btn{
+	color:white;
+	padding:7px 10px;
+	font-weight:bold;
+	color:#245024;
+	border:2px solid #245024;
+	border-radius:25px;
+	transition:all 0.3s ease;
+}
+
+.style-btn:hover{
+	color:white;
+	background-color:#245024;
+}
+.reset-btn{
+	margin-left:5px;
+	width:35px;
+	height:35px;
+	border-radius:50%;
+	vertical-align:middle;
+}
+.reset-btn:hover{
+	rotate:-360deg;
+	transition:rotate 0.5s ease;
 }
