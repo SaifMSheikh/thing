@@ -33,7 +33,7 @@ const reset_style=function(){
 	/*Update Values & Fetch Elements*/
 	style_idx=0;
 	const quotes=document.getElementsByClassName('quote');
-	const rst_btn=document.querySelector('.reset-btn')
+	const rst_btn=document.querySelector('#reset-btn')
 	/*Update Style*/
 	for(let i=0;i<quotes.length;++i)
 		_style_default(quotes[i].style);

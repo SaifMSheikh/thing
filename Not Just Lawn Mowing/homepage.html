@@ -56,7 +56,7 @@
 		<div class="about-us-body colors-light">
 			<!-- Left Column -->
 			<div class="left-column">
-				<svg id="color-btn"onclick="toggle_color_scheme()"style="float:right"fill="#A9C857"fill-opacity="0.53"width="30px"height="30px"viewBox="0 0 24 24"xmlns="http://www.w3.org/2000/svg"><path d="M12.022,22a10.017,10.017,0,0,0,9.929-8.632,4.828,4.828,0,0,0-.47-2.895C18.738,5.26,11.019,12.475,11.02,6c0-2.794,0-4-2-4C4,2,2,7.694,2,12A10.011,10.011,0,0,0,12.022,22ZM15.5,12A2.5,2.5,0,1,1,13,14.5,2.5,2.5,0,0,1,15.5,12ZM9,16.5A1.5,1.5,0,1,1,7.5,15,1.5,1.5,0,0,1,9,16.5ZM6.5,6A1.5,1.5,0,1,1,5,7.5,1.5,1.5,0,0,1,6.5,6Zm-1,4.5A1.5,1.5,0,1,1,4,12,1.5,1.5,0,0,1,5.5,10.5Z"/></svg>
+				<svg id="color-btn"onclick="toggle_color_scheme()"onmouseover="button_select(this)"onmouseout="button_deselect(this)"style="float:right"fill="#A9C857"fill-opacity="0.5"width="30px"height="30px"viewBox="0 0 24 24"xmlns="http://www.w3.org/2000/svg"><path d="M12.022,22a10.017,10.017,0,0,0,9.929-8.632,4.828,4.828,0,0,0-.47-2.895C18.738,5.26,11.019,12.475,11.02,6c0-2.794,0-4-2-4C4,2,2,7.694,2,12A10.011,10.011,0,0,0,12.022,22ZM15.5,12A2.5,2.5,0,1,1,13,14.5,2.5,2.5,0,0,1,15.5,12ZM9,16.5A1.5,1.5,0,1,1,7.5,15,1.5,1.5,0,0,1,9,16.5ZM6.5,6A1.5,1.5,0,1,1,5,7.5,1.5,1.5,0,0,1,6.5,6Zm-1,4.5A1.5,1.5,0,1,1,4,12,1.5,1.5,0,0,1,5.5,10.5Z"/></svg>
 				<div class="tagline-outer-box">
 					<div class="tagline-box-about-us">
 						<div class="tagline-about-us">
@@ -72,12 +72,11 @@
 				nature, offering a tranquil retreat where you can unwind and connect with the outdoors.
 				</p>
 				<!--a href="/About/about.html" class="cta-btn"><span class="arrow-circle">&#10132;</span> Learn More </a-->
-				<span class='show-btn'onclick='toggle_details()'>Show More</span>
+				<!--Show/Hide Details Button (Arrow)-->
+				<svg id="show-btn" onclick="toggle_details()" onmouseover="button_select(document.querySelector('#show-btn-inner'))" onmouseout="button_deselect(document.querySelector('#show-btn-inner'))" width="50px" height="50px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione-monotone" preserveAspectRatio="xMidYMid meet"><path id="show-btn-inner" fill="#A9C857" fill-opacity="0.5" d="M32 2C15.432 2 2 15.432 2 32c0 16.568 13.432 30 30 30s30-13.432 30-30C62 15.432 48.568 2 32 2zm1.693 46V37.428H15V27.143h18.693V16L49 32L33.693 48z"></path></svg>			
 			</div>
-
 			<!-- Vertical Dashed Line -->
 			<div class="vertical-dashed-line"></div>
-
 			<!-- Right Column -->
 			<div class="right-column">
 				<div class="icon-section" id="b">
@@ -236,9 +235,9 @@
 				</div>
 			</div>
 		</div>
-		<div class='style-btn-super'>
-			<span class='style-btn'onclick='toggle_style()'>Change Text Style</span>
-			<img src='./Image/reset.svg'class='reset-btn'onclick='reset_style()'/>
+		<div id='style-btn-super'>
+			<span id='style-btn'onclick='toggle_style()'>Change Text Style</span>
+			<img src='./Image/reset.svg'id='reset-btn'onclick='reset_style()'/>
 		</div>
 		<!-- Footer Section -->
 		<footer>

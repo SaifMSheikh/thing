@@ -1,13 +1,12 @@
 let det_flg=0;
-const show_btn_values=['Show More','Show Less'];
 const toggle_details=function(){
 	/*Update Values & Fetch Elements*/
-	det_flg=++det_flg%2;
+	++det_flg;
 	const icon_boxes=document.getElementsByClassName('icon-box');
-	const show_btn=document.querySelector('.show-btn');
-	const callback=det_flg?_util_show_details:_util_hide_details;
+	const show_btn=document.querySelector('#show-btn').style;
+	const callback=det_flg%2?_util_show_details:_util_hide_details;
 	/*Update Details*/
-	show_btn.innerHTML=show_btn_values[det_flg];
+	show_btn.rotate=(det_flg*180)+'deg';
 	for(let i=0;i<icon_boxes.length;++i)setTimeout(callback,i*100,icon_boxes[i]);
 }
 /*Callbacks & Utility Functions*/

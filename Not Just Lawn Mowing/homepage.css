@@ -132,12 +132,13 @@
 .icon-box.hide{
 	animation:fade-out 0.5s ease-in;
 }
-.show-btn{
+
+#show-btn{
 	float:right;
-	color:var(--col-accent);
-	border:2px solid var(--col-accent);
 	border-radius:25px;
 	padding:5px 10px;
+	rotate:0deg;
+	transition:rotate 0.75s ease;
 }
 
  .icon-box h3 {
@@ -312,7 +313,7 @@ border-left: #ece9e0;  }
   }
 }
 
-.style-btn-super{
+#style-btn-super{
 	display:flex;
 	justify-content:center;
 	text-align:center;
@@ -320,7 +321,7 @@ border-left: #ece9e0;  }
 	margin-bottom:7px;
 }
 
-.style-btn{
+#style-btn{
 	color:white;
 	padding:7px 10px;
 	font-weight:bold;
@@ -330,18 +331,18 @@ border-left: #ece9e0;  }
 	transition:all 0.3s ease;
 }
 
-.style-btn:hover{
+#style-btn:hover{
 	color:white;
 	background-color:#245024;
 }
-.reset-btn{
+#reset-btn{
 	margin-left:5px;
 	width:35px;
 	height:35px;
 	border-radius:50%;
 	vertical-align:middle;
 }
-.reset-btn:hover{
+#reset-btn:hover{
 	rotate:-360deg;
 	transition:rotate 0.5s ease;
 }
