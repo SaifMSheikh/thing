@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service</title>
     <link rel="stylesheet" href="service.css">
-    <script src="service.js"></script>
+    <script type="module" src="service.js"></script>
 </head>
 <body>
     <div class="main">
@@ -54,13 +54,8 @@
 <!-- Popup for actions (adding/removing items) -->
 <div id="popup" class="popup">
     <div class="popup-content">
-        <div id="auth-popup">
 
-            <h2>Authentication Required</h2>
-            <input type="password" id="keyInput" placeholder="Enter key" />
-            <button id="submitKey">Submit</button>
-        </div>
-        <div id="serviceForm" class="service-form" style="display:none;">
+        <div id="serviceForm" class="service-form" >
             <h3>Add New Service</h3>
             <input type="text" id="serviceName" placeholder="Service Name" />
             <input type="text" id="servicePrice" placeholder="Service Price" />
@@ -71,12 +66,13 @@
     </div>
 </div>
 
+        <div class="service-list">
+            
+        </div>
+
         <div style="margin: 20px;">
             <button id="addItemBtn">Add Item</button>
             <button id="removeItemBtn">Remove Last Item</button>
-        </div>
-        <div class="service-list">
-            
         </div>
         <!-- Service Table -->
 		<span class="rounded-border"style="color:white">Details</span>

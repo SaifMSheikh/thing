@@ -1,46 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-   var  services = [
-        {
-            name: "Lawn Mowing",
-            icon: "./Image/leaves.svg",
-            img: "./Image/lawn-mowing.jpeg",
-            caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-            description: "Enjoy our lawn mowing,<br> perfect for a tidy yard."
-        },
-        {
-            name: "Landscaping",
-            icon: "./Image/leaves.svg",
-            img: "./Image/landscaping.jpeg",
-            caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-            description: "Enjoy our landscaping,<br> perfect for outdoor aesthetics."
-        },
-        {
-            name: "BBQ & Sheds",
-            icon: "./Image/leaves.svg",
-            img: "./Image/bbq-shed.jpeg",
-            caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-            description: "Enjoy our BBQ sheds,<br> perfect for outdoor cooking."
-        },
-        {
-            name: "Spa & Pools",
-            icon: "./Image/leaves.svg",
-            img: "./Image/pool-spa.jpeg",
-            caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-            description: "Relax in our pools,<br> designed for ultimate comfort."
-        },
-        {
-            name: "Planting",
-            icon: "./Image/leaves.svg",
-            img: "./Image/planting.jpeg",
-            caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-            description: "Enjoy our planting,<br> perfect for vibrant gardens."
-        }
-    ];
+export var  services = [
+    
+    {
+        name: "Lawn Mowing",
+        icon: "./Image/leaves.svg",
+        img: "./Image/lawn-mowing.jpeg",
+        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
+        description: "Enjoy our lawn mowing.",
+         value: "lawnmowing",
+         price: "250 Pkr"
+    },
+    {
+        name: "Landscaping",
+        icon: "./Image/leaves.svg",
+        img: "./Image/landscaping.jpeg",
+        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
+        description: "Enjoy our landscaping.",
+        value: "landscaping",
+         price: "250 Pkr"
+    },
+    {
+        name: "BBQ & Sheds",
+        icon: "./Image/leaves.svg",
+        img: "./Image/bbq-shed.jpeg",
+        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
+        description: "Enjoy our BBQ sheds.",
+        value: "bbq-sheds",
+         price: "250 Pkr"
+    },
+    {
+        name: "Spa & Pools",
+        icon: "./Image/leaves.svg",
+        img: "./Image/pool-spa.jpeg",
+        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
+        description: "Relax in our pools.", 
+        value: "spa-pools",
+         price: "250 Pkr"
+    },
+    {
+        name: "Planting",
+        icon: "./Image/leaves.svg",
+        img: "./Image/planting.jpeg",
+        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
+        description: "Enjoy our planting.",
+        value: "planting",
+         price: "250 Pkr"
+    }
+];
 
+document.addEventListener("DOMContentLoaded", () => {
+   
     const serviceListDiv = document.querySelector(".service-list");
 
     // Clear existing content
-    serviceListDiv.innerHTML = "";
 
     // Function to create and append service items
     const createServiceItem = (service) => {
@@ -70,9 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
         captionDiv.innerHTML = `
             <img src="./Image/tick-filled.svg" class="service-img-caption-tick"/>
             ${service.caption}
-                            <img src="./Image/tick.svg" class="service-img-caption-tick"/>
-                            250k Pkr
-
+            <img src="./Image/tick.svg" class="service-img-caption-tick"/>
+           ${service.price}
         `;
         subDiv.appendChild(captionDiv);
 
@@ -145,40 +155,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const addItemBtn = document.getElementById("addItemBtn");
     const removeItemBtn = document.getElementById("removeItemBtn");
     const popup = document.getElementById("popup");
-    const keyInput = document.getElementById("keyInput");
-    const submitKey = document.getElementById("submitKey");
     const serviceForm = document.getElementById("serviceForm");
     const addServiceBtn = document.getElementById("addServiceBtn");
     const serviceList = document.getElementById("service-list");
     const closePopup = document.getElementById("closePopup");
-    const authpopup = document.getElementById("auth-popup");
     
     
     // Open the popup for authentication
     function openPopup() {
         popup.style.display = "flex";
+        serviceForm.style.display = "flex";
+        serviceForm.style.flexDirection="column";
+        serviceForm.style.justifyContent="center";
+        serviceForm.style.alignItems="center";
+        
     }
     
     // Close the popup
     closePopup.addEventListener("click", () => {
+        serviceForm.style.display = "none";
         popup.style.display = "none";
+
     });
     
-    // Handle key submission for authentication
-    submitKey.addEventListener("click", () => {
-        const enteredKey = keyInput.value;
-        if (enteredKey === key) {
-            // alert("Key correct!");
-            keyInput.value = ""; // Reset the input field
-            serviceForm.style.display = "block"; // Show the form for adding a new service
-            authpopup.style.display= "none"
-        } else {
-            alert("Incorrect key. Please try again.");
-        }
-    });
     
     // Add service to the list
     addServiceBtn.addEventListener("click", () => {
+        
         const serviceName = document.getElementById("serviceName").value;
         const servicePrice = document.getElementById("servicePrice").value;
         const serviceDescription = document.getElementById("serviceDescription").value;
@@ -186,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (serviceName && servicePrice && serviceDescription) {
             // Create a new object using the variables
         let newService = {
+            price:servicePrice,
         name: serviceName,
         icon: "./Image/leaves.svg",
         img: "./Image/landscaping.jpeg",
@@ -197,20 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add the new service to the array
         services.push(newService);
 
-
-            // const newServiceItem = document.createElement("div");
-            // newServiceItem.classList.add("service-item");
-    
-            // newServiceItem.innerHTML = `
-            //     <h3>${serviceName}</h3>
-            //     <p>Price: ${servicePrice}</p>
-            //     <p>Description: ${serviceDescription}</p>
-            // `;
-    
-            // Append the new service item to the service list
-            // serviceList.appendChild(newServiceItem);
-    
-            // Reset the form
+        // Reset the form
             document.getElementById("serviceName").value = "";
             document.getElementById("servicePrice").value = "";
             document.getElementById("serviceDescription").value = "";
@@ -249,32 +240,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     // Open the popup when "Add Item" button is clicked
-    addItemBtn.addEventListener("click", openPopup);
+    addItemBtn.addEventListener("click", ()=>{
+        const enteredKey = prompt("Enter key to remove the last item:");
     
-
+        if (enteredKey === key) {
+            openPopup();
+        }
+    });
+    
     // Dynamically add services
     services.forEach(createServiceItem);
     createServiceTable(services);
 });
- 
-    // <div class="service-item">
-    //     <div class="sub">
-    //         <img src="./Image/leaves.svg" class="service-img-icon"/>
-    //         <img src="./Image/lawn-mowing.jpeg" class="service-img">
-    //         <div class="service-img-caption">
-    //             <img src="./Image/tick-filled.svg" class="service-img-caption-tick"/>
-    //             250+ Client<div class="inline-dashed-vertical-line"></div>
-    //             <img src="./Image/tick.svg" class="service-img-caption-tick"/>
-    //             25k USD
-    //         </div>
-    //     </div>
-       
-//     <div style="margin-bottom:40px;">
-//     <h2>Lawn Mowing</h2>
-//     <p>
-//         Enjoy our lawn mowing,<br>
-//         perfect for a tidy yard.
-//     </p>
-// </div>
-
-

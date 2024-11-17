@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="contact.css">
-</head>
+    <script type="module" src="./contact.js"></script>
+  </head>
 <body>
     <header class="header" id="header">
        
@@ -96,13 +97,8 @@
             <label for="service" style="text-align: center; display: block;">Select a service from the dropdown</label>
 
             <div class="dropdown">
-              <button class="dropdown-btn" onclick="toggleDropdown()">Select a service</button>
+              <button class="dropdown-btn" id="dropdown-btn">Select a service</button>
               <div class="dropdown-menu" id="dropdown-menu">
-                <label><input type="checkbox" value="lawnmowing"> Lawn Mowing</label>
-                <label><input type="checkbox" value="landscaping"> Landscaping</label>
-                <label><input type="checkbox" value="bbq-sheds"> BBQ & Sheds</label>
-                <label><input type="checkbox" value="spa-pools"> Spa & Pools</label>
-                <label><input type="checkbox" value="planting"> Planting</label>
               </div>
             </div>
         
@@ -111,6 +107,7 @@
           </form>
         </div>
         <script src="formValidation.js"></script>
+        <script src="contact.js"></script>
         
 
     
