@@ -1,0 +1,578 @@
+@keyframes zoomBackground {
+	0% {
+		background-size: 100%; /* Start at full size */
+	}
+	50% {
+		background-size: 110%; /* Zoom slightly */
+	}
+	100% {
+		background-size: 100%; /* Return to full size */
+	}
+}
+/* Popup styling */
+.popup {
+	z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.popup input, .popup textarea {
+    width: 80%;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+button {
+    padding: 15px 25px;
+    margin: 10px 0;
+	border-radius: 25px;
+    background-color: #ece9e0;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.service-list {
+    margin-top: 20px;
+}
+
+.service-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.service-item h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.service-item p {
+    margin: 5px 0;
+}
+
+#closePopup {
+    background-color: red;
+}
+
+
+.header {
+	color: white;
+	height: 100vh;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	animation: zoomBackground 30s ease-in-out infinite;
+	background-position: center;
+}
+
+/* Overlay using ::before */
+.header::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(36, 80, 36, 0.5);
+	z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+	.header {
+		animation: none; /* Disable zoom animation on tablets for better performance */
+		background-size: cover;
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		animation: none; /* Disable zoom on smaller screens */
+		background-size: cover;
+		background-position: center;
+	}
+}
+
+/* Reset styles for all elements */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	color: black;
+}
+
+#cards p{
+	color: #2F5830;
+	align-items: center;
+}
+
+
+.navbar {
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	padding: 15px 5px;
+	justify-content: space-evenly;
+}
+
+.logo {
+	z-index: 2;
+	font-size: 24px;
+	font-weight: bold;
+	font-size:35px;
+	color: #fff;
+}
+
+.logo-img{
+	border-radius:50%;
+	background-color:#A9C857;
+	color:#2F5830;
+	width:45px;
+	height:45px;
+	float:left;
+	margin-right:5px;
+}
+
+.nav-links {
+	z-index: 2;
+	list-style: none;
+	display: flex;
+	gap: 100px;
+}
+
+.nav-links li a {
+	z-index: 2;
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+
+.nav-links li a:hover {
+	color: #c3e283;
+}
+
+/* Additional styles... */
+
+.fab{
+	z-index: 2;
+	padding: 0px 10px;
+}
+.hero {
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	text-align: center;
+}
+
+.hero-content {
+	max-width: 700px;
+	padding: 20px;
+}
+
+#tag .tagline {
+	font-size: 18px;
+	padding: 10px 0;
+	font-weight: 400;
+	color: #fff;
+}
+#tag .tagline-box{
+	margin: 0px 200px ;
+	border-radius: 25px;
+	/* border-color: white; */
+	border:  3px solid;
+}
+#topic .topic{
+	color: white;
+}
+h1 {
+	font-size: 65px;
+	line-height: 1.2;
+	font-weight: 700;
+	color: white;
+}
+
+.subtext {
+	margin: 20px 0;
+	font-size: 18px;
+	color: white;
+}
+
+
+
+.arrow-circle {
+	margin-right: 2px;
+	background-color: darkgreen; /* Circle background color */
+	color: white; /* Arrow color */
+	width: 20px; /* Size of the circle */
+	height: 20px;
+	text-align: center;
+	padding: 0px 2px;
+	border-radius: 50%;
+	font-size: 18px;
+}
+.arrow{
+	display: inline-block;
+	margin-left: 5px;
+	transition: transform 0.3s ease;
+}.dropdown:hover .arrow{
+	transform: rotate(90deg) ;
+}
+
+.sidebar{  
+	display: none;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+	h1 {
+		font-size: 36px;
+	}
+
+	.tagline-box{
+		margin: 0px 50px;
+	}
+
+
+	.navbar{
+		justify-content: space-between;
+	}
+
+	.logo {
+		z-index: 2;
+		font-size: 24px;
+		font-weight: bold;
+		font-size:35px;
+		color: #fff;
+	}
+
+	.logo-img{
+		border-radius:50%;
+		background-color:#A9C857;
+		color:#2F5830;
+		width:45px;
+		height:45px;
+		float:left;
+		margin-right:5px;
+	}
+
+	.hamburger-icon {
+		position: relative;
+		display: flex;                /* Use flexbox to align the lines */
+		flex-direction: column;       /* Stack lines vertically */
+		cursor: pointer;              /* Change cursor on hover */
+		width: 30px;                  /* Set the width for the icon */
+		height: 25px;                 /* Set the height for the icon */
+		margin-right: 20px;          /* Margin from the right */
+		z-index: 2;                   /* Ensure it is above other elements */
+		font-weight: bold; 
+
+	}
+	.hamburger-icon:hover .sidebar {
+		right: -20px;                     /* Move to visible position */
+		display: block;
+	}
+
+
+	.line {
+		height: 10px;                 /* Height of each line */
+		background-color: white;       /* Color of the lines */
+		margin: 4px 0;                /* Space between lines */
+		transition: background-color 0.3s; /* Smooth transition for hover effect */
+	}
+
+	/* Sidebar Styles */
+	.sidebar {
+		border-radius: 25px;
+		display: none;
+		position: absolute;           /* Absolute positioning */
+		top: 0;                       /* Start from the top */
+		right: -300px;                /* Start hidden off-screen */
+		width: 200px;                 /* Width of the sidebar */
+		/* background-color:  #ece9e0;      */
+		color:  black;                 /* Text color */
+		transition: right 0.3s ease-in-out; /* Smooth transition for the right property */
+		z-index: 1;                   /* Ensure it is below the icon */
+	}
+
+	/* Show sidebar when hovering over the hamburger icon */
+	.nav-links-sidebar {
+		list-style: none;             /* Remove list styling */
+		padding: 20px;                /* Padding inside sidebar */
+	}
+
+	.nav-links-sidebar li {
+		margin: 20px 0;               /* Space between links */
+	}
+
+	.nav-links-sidebar li a { color:  black;                 /* Text color */
+
+		text-decoration: none;        /* No underline */
+		font-size: 18px;              /* Font size for links */
+		transition: color 0.3s;       /* Smooth transition for hover effect */
+	}
+
+	.nav-links-sidebar li a:hover {
+		color: #a5d549;               /* Change color on hover */
+	}
+	.nav-links{
+		display: none;
+	}
+
+}
+
+
+/* CARDS */
+
+a{text-decoration:none;}
+.main{
+	display:block;
+	text-align:center;
+	white-space:nowrap;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:16px;
+	line-height:1.5;
+	color:#545454;	
+	background-color:#A9C857;
+	background-blend-mode:multiply;
+	background-image:url('../Image/garden-image.jpg');
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:cover;
+}
+p.very-large-text{
+	font-size:45px;
+	font-weight:1000;
+	letter-spacing:1px;
+	margin-bottom:0px;
+}
+.rounded-border{
+	padding:5px 20px;
+	border:2px solid white;
+	border-radius:50px;
+}
+.service-list{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap:40px 0px;
+	padding:25px 0px;
+}
+.service-item{
+	display:block;
+	background-color:#FFFFFF;
+	width:300px;
+	border-radius:30px;
+	padding:20px;
+	margin:0px 20px;
+}
+.service-item .sub{
+	position:relative;
+	right:5px;
+}
+.service-item h2{color:#2F5830;}
+.service-img{
+	background-color:#2F5830;
+	height:200px;
+	width:270px;
+	border-radius:30px;
+
+}
+.service-img-icon{
+	display:flex;
+	background:#A9C857;
+	border-radius:50%;
+	width:55px;
+	height:55px;
+	position:absolute;
+	top:170px;
+	left:220px;
+}
+.service-img-caption{
+	text-align:left;
+}
+.service-img-caption-tick{
+	vertical-align:middle;
+	margin-bottom:2px;
+	width:20px;
+	height:20px;
+}
+.service-button{
+	color:#2F5830;
+	background-color:#A9C857;
+	padding:20px 30px;
+	border-radius:30px;
+}
+.inline-dashed-vertical-line{
+	display:inline-block;
+	position:relative;
+	padding:0px 2px;
+}
+.inline-dashed-vertical-line::before{
+	content:'';
+	position:absolute;
+	left:5px;
+	height:1em;
+	border-left:2px dashed #2F5830;
+	transform:translateY(-80%);
+}
+
+
+/* Hover effect for scaling the cards */
+.service-item {
+	display: block;
+	background-color: #FFFFFFDD;
+	width: 300px;
+	border-radius: 30px;
+	padding: 20px;
+	margin: 0px 20px;
+	overflow: hidden;
+	position: relative;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.service-item:hover {
+	background-color:#FFFFFFFF;
+	transform: scale(1.05);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* TABLE */
+.table {
+	max-width: 800px; /* Set a maximum width for the table */
+	border-radius: 25px; /* Rounded corners */
+	overflow: hidden; /* Ensures that rounded corners are visible */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	margin: 0 auto; /* Center the table */
+	margin-bottom: 10px;
+}
+
+
+table {
+	width: 100%; /* Full width */
+	border-collapse: collapse; /* Merge borders */
+	background-color: #f9f9f9DD; /* Light background */
+}
+
+thead {
+	background-color:#2F5830DD;
+	color:#FFFFFF;
+}
+
+th, td {
+	padding: 12px;
+	/* Space around text */
+	text-align: left; /* Left align text */
+	border-bottom: 1px solid #ddd; /* Bottom border for rows */
+}
+
+tbody tr:hover {
+	background-color: #A9C857AA; /* Highlight row on hover */
+	color:#2F5830;
+}
+
+th {
+	font-weight: bold; /* Bold text for header */
+	font-size: 1.1em; /* Slightly larger text for header */
+}
+
+td {
+	font-size: 1em; /* Regular text size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+	th, td {
+		padding: 10px; /* Adjust padding on smaller screens */
+		font-size: 0.9em; /* Slightly smaller text size */
+	}
+}
+
+.footer-content {
+	margin: 0; /* Remove margin */
+	padding: 20px 40px; /* Add 20px padding top and bottom, 40px left and right */
+	background-color: #2F5830AA;
+	color: #FFFFFF;
+	text-align: center;
+	width: 100%; /* Ensure footer spans full width */
+	height: auto; /* Allow height to adjust based on content and padding */
+	min-height: 80px; /* Set a minimum height if you want the footer to be taller */
+	display: flex;
+	justify-content: center; /* Center the footer content */
+	align-items: center;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+.social-icons {
+	margin-left: auto; /* Adjust social icons if needed */
+}
+
+.social {
+	width: 30px;
+	height: auto;
+	margin: 0 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+	.testimonials {
+		flex-direction: column; /* Stack testimonials vertically */
+		align-items: center; /* Center testimonials */
+	}
+
+	.testimonial {
+		width: 100%; /* Full width on smaller screens */
+	}
+}
+
+@media (max-width: 768px) {
+	.social {
+		width: 25px; /* Adjust social icon size */
+	}
+
+	footer {
+		font-size: 14px;
+		padding: 15px; /* Adjust footer padding */
+	}
+}
+
+@media (max-width: 480px) {
+	footer {
+		font-size: 12px;
+		padding: 10px; /* Adjust footer padding */
+	}
+
+	.social {
+		width: 20px; /* Adjust social icon size */
+	}
+}

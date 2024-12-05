@@ -1,0 +1,514 @@
+/* Adjusted Zoom animation for background */
+@keyframes zoomBackground {
+  0% {
+    background-size: 100%; /* Start at full size */
+  }
+  50% {
+    background-size: 110%; /* Zoom slightly */
+  }
+  100% {
+    background-size: 100%; /* Return to full size */
+  }
+}
+
+.header {
+  color: white;
+  background: url('../Image/bg.jpg') no-repeat center center;
+  background-size: cover; /* Ensure the image covers the whole container */
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: zoomBackground 30s ease-in-out infinite;
+  background-position: center;
+}
+
+/* Overlay using ::before */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(36, 80, 36, 0.5);
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .header {
+    animation: none; /* Disable zoom animation on tablets for better performance */
+    background-size: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    animation: none; /* Disable zoom on smaller screens */
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* Reset styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+
+.navbar {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 15px 5px;
+    justify-content: space-evenly;
+}
+
+.logo {
+	z-index: 2;
+	font-size: 24px;
+	font-weight: bold;
+	font-size:35px;
+	color: #fff;
+}
+
+.logo-img{
+	border-radius:50%;
+	background-color:#A9C857;
+	color:#2F5830;
+	width:45px;
+	height:45px;
+	float:left;
+	margin-right:5px;
+}
+
+.nav-links {
+    z-index: 2;
+    list-style: none;
+    display: flex;
+    gap: 100px;
+}
+
+.nav-links li a {
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+.nav-links li a:hover {
+    color: #c3e283;
+}
+
+/* Additional styles... */
+
+  .fab{
+    z-index: 2;
+    padding: 0px 10px;
+  }
+  .hero {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 700px;
+    padding: 20px;
+  }
+  
+  #tag .tagline {
+    font-size: 18px;
+    padding: 10px 0;
+    font-weight: 400;
+    color: #fff;
+  }
+  #tag .tagline-box{
+    margin: 0px 200px ;
+    border-radius: 25px;
+    border-color: white;
+    border:  3px solid;
+  }
+  #topic .topic{
+      color: white;
+  }
+  h1 {
+    font-size: 65px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .subtext {
+    margin: 20px 0;
+    font-size: 18px;
+    color: white;
+  }
+  
+  .cta-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #a5d549;
+    color: #333;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .cta-btn:hover {
+    background-color: #ece9e0;
+    transform: scale(1.2);
+  }
+
+
+.arrow-circle {
+  margin-right: 2px;
+  background-color: darkgreen; /* Circle background color */
+  color: white; /* Arrow color */
+  width: 20px; /* Size of the circle */
+  height: 20px;
+  text-align: center;
+  padding: 0px 2px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+.arrow{
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  }.dropdown:hover .arrow{
+transform: rotate(90deg) ;
+}
+
+.sidebar{  
+display: none;
+}
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 36px;
+    }
+    
+    .tagline-box{
+      margin: 0px 50px;
+    }
+
+
+    .navbar{
+      justify-content: space-between;
+    }
+
+    .logo {
+      z-index: 2;
+      font-size: 24px;
+      font-weight: bold;
+    font-size:35px;
+      color: #fff;
+    }
+  
+    .logo-img{
+    border-radius:50%;
+    background-color:#A9C857;
+    color:#2F5830;
+    width:45px;
+    height:45px;
+    float:left;
+    margin-right:5px;
+    }
+
+    .hamburger-icon {
+      position: relative;
+      display: flex;                /* Use flexbox to align the lines */
+      flex-direction: column;       /* Stack lines vertically */
+      cursor: pointer;              /* Change cursor on hover */
+      width: 30px;                  /* Set the width for the icon */
+      height: 25px;                 /* Set the height for the icon */
+      margin-right: 20px;          /* Margin from the right */
+      z-index: 2;                   /* Ensure it is above other elements */
+      font-weight: bold; 
+
+    }
+    .hamburger-icon:hover .sidebar {
+      right: -20px;                     /* Move to visible position */
+   display: block;
+    }
+  
+    
+    .line {
+      height: 10px;                 /* Height of each line */
+      background-color: white;       /* Color of the lines */
+      margin: 4px 0;                /* Space between lines */
+      transition: background-color 0.3s; /* Smooth transition for hover effect */
+    }
+    
+    /* Sidebar Styles */
+    .sidebar {
+      border-radius: 25px;
+      display: none;
+      position: absolute;           /* Absolute positioning */
+      top: 0;                       /* Start from the top */
+      right: -300px;                /* Start hidden off-screen */
+      width: 200px;                 /* Width of the sidebar */
+      background-color:  #ece9e0;       /* Background color of the sidebar */
+      color:  black;                 /* Text color */
+      transition: right 0.3s ease-in-out; /* Smooth transition for the right property */
+      z-index: 1;                   /* Ensure it is below the icon */
+    }
+    
+    /* Show sidebar when hovering over the hamburger icon */
+    .nav-links-sidebar {
+      list-style: none;             /* Remove list styling */
+      padding: 20px;                /* Padding inside sidebar */
+    }
+    
+    .nav-links-sidebar li {
+      margin: 20px 0;               /* Space between links */
+    }
+    
+    .nav-links-sidebar li a { color:  black;                 /* Text color */
+     
+      text-decoration: none;        /* No underline */
+      font-size: 18px;              /* Font size for links */
+      transition: color 0.3s;       /* Smooth transition for hover effect */
+    }
+    
+    .nav-links-sidebar li a:hover {
+      color: #a5d549;               /* Change color on hover */
+    }
+    .nav-links{
+      display: none;
+    }
+    
+  }
+  
+  /* review */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  padding: 0; /* Remove padding from the body */
+  display: flex;
+  flex-direction: column; /* Ensure vertical stacking */
+  justify-content: space-between; /* Distribute space between header, content, and footer */
+  min-height: 100vh; /* Ensure body takes full height of the viewport */
+}
+
+.testimonial-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-block {
+  padding: 20px;
+  background-color: #ffffff;
+  color: #355c34;
+  text-align: center;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center contents of container */
+  flex: 1; /* Allow the main content to grow */
+}
+
+.my-heading{
+  color: #355c34;
+}
+/* Header Section */
+.block {
+  margin-bottom: 40px;
+  color:green
+}
+
+.green-button {
+  background-color: #e4f0d0;
+  color: #357a38;
+  border: 1px solid #357a38;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+h1 {
+  color: white;
+  font-size: 36px;
+  margin: 20px 0;
+}
+
+
+.header p {
+  font-size: 16px;
+  color: white;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Testimonials Section */
+.testimonials {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  background-color: #f9f6e9;
+  border: 2px dashed #a0c899;
+  border-radius: 15px;
+  padding: 20px;
+  width: 30%; /* Adjust this as needed */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-style: italic;
+  text-align: center;
+  min-width: 280px;
+  transition: transform 0.3s;
+}
+
+.testimonial:hover {
+  transform: scale(1.05);
+}
+
+/* Quotation Marks */
+.quote-mark {
+  font-size: 50px;
+  color: #11ac0c;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  padding-left: 43%;
+}
+
+.quote {
+  font-size: 18px;
+  color: #355c34;
+  margin: 15px 0;
+  font-style: normal;
+  padding: 0 10px;
+}
+
+/* Star Rating */
+.rating {
+  margin: 10px 0;
+}
+
+.rating span {
+  color: #f5c518;
+  font-size: 20px;
+}
+
+/* User Info */
+.user-info {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.user-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+  color: #355c34;
+}
+
+/* Footer */
+footer {
+  margin: 0; /* Remove margin */
+  padding: 20px 40px; /* Add 20px padding top and bottom, 40px left and right */
+  background-color: #2F5830;
+  color: #FFFFFF;
+  text-align: center;
+  width: 100%; /* Ensure footer spans full width */
+  height: auto; /* Allow height to adjust based on content and padding */
+  min-height: 80px; /* Set a minimum height if you want the footer to be taller */
+}
+
+/* Footer content */
+.footer-content {
+  display: flex;
+  justify-content: center; /* Center the footer content */
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.social-icons {
+  margin-left: auto; /* Adjust social icons if needed */
+}
+
+.social {
+  width: 30px;
+  height: auto;
+  margin: 0 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .testimonials {
+      flex-direction: column; /* Stack testimonials vertically */
+      align-items: center; /* Center testimonials */
+  }
+  
+  .testimonial {
+      width: 100%; /* Full width on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .social {
+      width: 25px; /* Adjust social icon size */
+  }
+
+  footer {
+      font-size: 14px;
+      padding: 15px; /* Adjust footer padding */
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+      font-size: 12px;
+      padding: 10px; /* Adjust footer padding */
+  }
+
+  .social {
+      width: 20px; /* Adjust social icon size */
+  }
+}
+
+
+
+  
+
