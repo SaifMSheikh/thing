@@ -6,6 +6,12 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-// Route::get('/dbconn', function () {
-//     return view('dbconn');
-// });
+Route::get('/service', function () {
+    return view('service');
+});
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/about', function () {
+    return view('about');
+});
