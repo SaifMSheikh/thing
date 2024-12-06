@@ -1,5 +1,5 @@
 export var  services = [
-    
+
     {
         name: "Lawn Mowing",
         icon: "./Image/leaves.svg",
@@ -32,7 +32,7 @@ export var  services = [
         icon: "./Image/leaves.svg",
         img: "./Image/pool-spa.jpeg",
         caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-        description: "Relax in our pools.", 
+        description: "Relax in our pools.",
         value: "spa-pools",
          price: "250 Pkr"
     },
@@ -48,7 +48,7 @@ export var  services = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-   
+
     const serviceListDiv = document.querySelector(".service-list");
 
     // Clear existing content
@@ -87,31 +87,31 @@ document.addEventListener("DOMContentLoaded", () => {
         subDiv.appendChild(captionDiv);
 
         serviceItem.appendChild(subDiv);
-        
+
                 const description_div=document.createElement("div")
                 description_div.style.marginBottom="40px";
                 serviceItem.appendChild(description_div);
-                
+
 
         // Title and description
         const title = document.createElement("h2");
         title.textContent = service.name;
         description_div.appendChild(title);
-        
+
 
         const description = document.createElement("p");
         description.innerHTML = service.description;
         description_div.appendChild(description);
-   
+
         // Append to the main list
         serviceListDiv.appendChild(serviceItem);
     };
 
     const createServiceTable = (services) => {
         const tableDiv = document.getElementById("table");
-       
+
         const table = document.createElement("table");
-    
+
         // Create table head
         const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
@@ -123,28 +123,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         thead.appendChild(headerRow);
         table.appendChild(thead);
-    
+
         // Create table body
         const tbody = document.createElement("tbody");
         services.forEach(service => {
             const row = document.createElement("tr");
-    
+
             const nameCell = document.createElement("td");
             nameCell.textContent = service.name;
             row.appendChild(nameCell);
-    
+
             const priceCell = document.createElement("td");
             priceCell.textContent = service.price;
             row.appendChild(priceCell);
-    
+
             const descriptionCell = document.createElement("td");
             descriptionCell.textContent = service.description;
             row.appendChild(descriptionCell);
-    
+
             tbody.appendChild(row);
         });
         table.appendChild(tbody);
-    
+
         tableDiv.appendChild(table);
     };
 
@@ -159,8 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const addServiceBtn = document.getElementById("addServiceBtn");
     const serviceList = document.getElementById("service-list");
     const closePopup = document.getElementById("closePopup");
-    
-    
+
+
     // Open the popup for authentication
     function openPopup() {
         popup.style.display = "flex";
@@ -168,24 +168,24 @@ document.addEventListener("DOMContentLoaded", () => {
         serviceForm.style.flexDirection="column";
         serviceForm.style.justifyContent="center";
         serviceForm.style.alignItems="center";
-        
+
     }
-    
+
     // Close the popup
     closePopup.addEventListener("click", () => {
         serviceForm.style.display = "none";
         popup.style.display = "none";
 
     });
-    
-    
+
+
     // Add service to the list
     addServiceBtn.addEventListener("click", () => {
-        
+
         const serviceName = document.getElementById("serviceName").value;
         const servicePrice = document.getElementById("servicePrice").value;
         const serviceDescription = document.getElementById("serviceDescription").value;
-    
+
         if (serviceName && servicePrice && serviceDescription) {
             // Create a new object using the variables
         let newService = {
@@ -214,21 +214,21 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Please fill in all fields.");
         }
     });
-    
+
     // Remove last service item from the list
     removeItemBtn.addEventListener("click", () => {
         const enteredKey = prompt("Enter key to remove the last item:");
-    
+
         if (enteredKey === key) {
             const tableDiv = document.getElementById("table"); // Locate the table container
     const table = tableDiv.querySelector("table");    // Find the table inside the container
         const tbody = table.querySelector("tbody");   // Find the table body
-    
+
             // Ensure there's an item to remove
             if (tbody.lastElementChild && serviceListDiv.lastElementChild) {
-                
+
                  // Remove last child from tbody and serviceListDiv
-                tbody.removeChild(tbody.lastElementChild); 
+                tbody.removeChild(tbody.lastElementChild);
                 services.pop(); // Remove last service from the array
                 serviceListDiv.removeChild(serviceListDiv.lastElementChild);
               } else {
@@ -238,17 +238,27 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Incorrect key. Cannot remove item.");
         }
     });
-    
+
     // Open the popup when "Add Item" button is clicked
     addItemBtn.addEventListener("click", ()=>{
         const enteredKey = prompt("Enter key to add an item:");
-    
+
         if (enteredKey === key) {
             openPopup();
         }
     });
-    
+
     // Dynamically add services
     services.forEach(createServiceItem);
     createServiceTable(services);
 });
+
+const fetch_services=function(){
+    fetch('/services')
+        .then(response=>{
+            if(!response.ok)throw new Error(response.statusText);
+            return response.json;
+        })
+        .then(services=>{console.log(services);})
+        .catch(err=>{console.error('Error Fetching Services : ',err)})
+}

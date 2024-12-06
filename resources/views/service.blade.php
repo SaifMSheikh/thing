@@ -5,13 +5,10 @@
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 <script type="module" src="{{ asset('js/service.js') }}"></script>
 @endsection
-
-
 @section('pageheading','Services')
-  
 @section('content')
     <div class="main">
-        
+
         <!-- Services -->
         <div style="color:#FFFFFF">
             <br/>
@@ -38,7 +35,7 @@
 </div>
 
      <div class="service-list">
-            
+
         </div>
 
         <div style="margin: 20px;">
@@ -50,5 +47,5 @@
 		<div style="margin-bottom:20px"></div><!--For Padding-->
         <div id ="table" class="table">
         </div>
-		<div style="margin-bottom:25px"></div><!--For Padding--> 
+		<div style="margin-bottom:25px"></div><!--For Padding-->
 @endsection
