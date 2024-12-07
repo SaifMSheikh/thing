@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="main">
-        <!-- Services -->
+        <!-- Services Section -->
         <div style="color:#FFFFFF">
             <br />
             <span class="rounded-border">What We Offer</span>
@@ -22,21 +22,21 @@
             </p>
         </div>
 
-        <!-- Popup for actions (adding/removing items) -->
+        <!-- Popup for Adding Services -->
         <div id="popup" class="popup" style="display: none;">
             <div class="popup-content">
                 <div id="serviceForm" class="service-form">
                     <h3>Add New Service</h3>
-                    <input type="text" id="serviceName" placeholder="Service Name" />
-                    <input type="text" id="servicePrice" placeholder="Service Price" />
-                    <textarea id="serviceDescription" placeholder="Service Description"></textarea>
+                    <input type="text" id="serviceName" placeholder="Service Name" required />
+                    <input type="text" id="servicePrice" placeholder="Service Price" required />
+                    <textarea id="serviceDescription" placeholder="Service Description" required></textarea>
                     <button id="addServiceBtn">Add Service</button>
                 </div>
                 <button id="closePopup">Close</button>
             </div>
         </div>
 
-        <!-- Service List -->
+        <!-- Service List (Cards) -->
         <div class="service-list"></div>
 
         <!-- Action Buttons -->

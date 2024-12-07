@@ -18,11 +18,12 @@ Route::get('/about', function () {
 use App\Http\Controllers\ServiceController;
 use App\Http\Middleware\EnsureTokenIsValid;
 
-// Group routes with middleware
-Route::middleware(EnsureTokenIsValid::class)->group(function () {
-    Route::post('/add-service', [ServiceController::class, 'addService'])->name('add.service');
-    Route::post('/remove-service', [ServiceController::class, 'removeService'])->name('remove.service');
-});
+
+Route::get('/services', [ServiceController::class, 'getServices']); // Fetch services
+Route::post('/add-service', [ServiceController::class, 'addService']); // Add a service
+Route::post('/remove-service', [ServiceController::class, 'removeService']); // Remove a service
+
+
 
 // Optional: Use middleware for validation-only routes
 Route::post('/validate-key', function (Request $request) {
