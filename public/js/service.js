@@ -1,51 +1,3 @@
-export var services = [
-    {
-        name: "Lawn Mowing",
-        icon: "./Image/leaves.svg",
-        img: "./Image/lawn-mowing.jpeg",
-        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-        description: "Enjoy our lawn mowing.",
-        value: "lawnmowing",
-        price: "250 Pkr",
-    },
-    {
-        name: "Landscaping",
-        icon: "./Image/leaves.svg",
-        img: "./Image/landscaping.jpeg",
-        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-        description: "Enjoy our landscaping.",
-        value: "landscaping",
-        price: "250 Pkr",
-    },
-    {
-        name: "BBQ & Sheds",
-        icon: "./Image/leaves.svg",
-        img: "./Image/bbq-shed.jpeg",
-        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-        description: "Enjoy our BBQ sheds.",
-        value: "bbq-sheds",
-        price: "250 Pkr",
-    },
-    {
-        name: "Spa & Pools",
-        icon: "./Image/leaves.svg",
-        img: "./Image/pool-spa.jpeg",
-        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-        description: "Relax in our pools.",
-        value: "spa-pools",
-        price: "250 Pkr",
-    },
-    {
-        name: "Planting",
-        icon: "./Image/leaves.svg",
-        img: "./Image/planting.jpeg",
-        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-        description: "Enjoy our planting.",
-        value: "planting",
-        price: "250 Pkr",
-    },
-];
-
 document.addEventListener("DOMContentLoaded", () => {
     const serviceListDiv = document.querySelector(".service-list");
     const tableDiv = document.getElementById("table");
@@ -55,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const serviceForm = document.getElementById("serviceForm");
     const addServiceBtn = document.getElementById("addServiceBtn");
     const closePopup = document.getElementById("closePopup");
-
+    var services;
     // Fetch services and update UI
     const fetchServices = () => {
         fetch("/services")
@@ -137,7 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
 
-        const headers = ["Service Name", "Service Price", "Service Description"];
+        const headers = [
+            "Service Name",
+            "Service Price",
+            "Service Description",
+        ];
         headers.forEach((header) => {
             const th = document.createElement("th");
             th.textContent = header;
@@ -174,7 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
     addServiceBtn.addEventListener("click", () => {
         const serviceName = document.getElementById("serviceName").value;
         const servicePrice = document.getElementById("servicePrice").value;
-        const serviceDescription = document.getElementById("serviceDescription").value;
+        const serviceDescription =
+            document.getElementById("serviceDescription").value;
 
         if (!serviceName || !servicePrice || !serviceDescription) {
             return alert("All fields are required.");
@@ -183,13 +140,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const key = prompt("Enter key to add service:");
         if (!key) return alert("Key is required.");
 
-        const newService = { key, name: serviceName, price: servicePrice, description: serviceDescription };
+        const newService = {
+            key,
+            name: serviceName,
+            price: servicePrice,
+            description: serviceDescription,
+        };
 
         fetch("/add-service", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                "X-CSRF-TOKEN": document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content"),
             },
             body: JSON.stringify(newService),
         })
@@ -213,7 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                "X-CSRF-TOKEN": document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content"),
             },
             body: JSON.stringify({ key, id: lastService.id }),
         })

@@ -3,6 +3,7 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+		<script type="module" src="{{ asset('js/homepage.js') }}"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 @endsection
 @section('homepagehero')
@@ -79,72 +80,9 @@
 			<div class="heading">
 				<h1>SERVICES</h1>
 			</div>
-			<div class="cards-wrapper">
-				<div class="card">
-					<img src="{{ asset('Image/mowing.jpg') }}"" alt="Lawn Mowing" class="card-image">
-					<div class="card-content">
-						<div class="card-info">
-							<span><i class="fas fa-check-circle"></i> 250+ Clients</span>
-							<span class="dashed-divider"></span>
-							<span>PKR 25k</span>
-						</div>
-						<div class="card-title">
-							<h2>Lawn Mowing</h2>
-						</div>
-						<p class="card-description">Our professional lawn mowing service ensures a pristine and healthy lawn, enhancing your home’s curb appeal.</p>
-						<a  href="/Service/service.html" class="cta-btn"><span class="arrow-circle">&#10132;</span> Learn More </a>
-					</div>
-				</div>
-
-				<div class="card">
-					<img src="{{ asset('Image/planting.jpeg') }}" alt="Planting" class="card-image">
-					<div class="card-content">
-						<div class="card-info">
-							<span><i class="fas fa-check-circle"></i> 250+ Clients</span>
-							<span class="dashed-divider"></span>
-							<span>PKR 25k</span>
-						</div>
-						<div class="card-title">
-							<h2>Planting & Landscaping </h2>
-						</div>
-						<p class="card-description">We offer expert planting services that create stunning outdoor spaces tailored to your preferences.</p>
-						<a  href="/Service/service.html" class="cta-btn"><span class="arrow-circle">&#10132;</span> Learn More </a>
-					</div>
-				</div>
-
-				<div class="card">
-					<img src="{{ asset('Image/pool.jpg') }}" alt="Spa and Pool" class="card-image">
-					<div class="card-content">
-						<div class="card-info">
-							<span><i class="fas fa-check-circle"></i> 250+ Clients</span>
-							<span class="dashed-divider"></span>
-							<span>PKR 25k</span>
-						</div>
-						<div class="card-title">
-							<h2>Spa & Pool Servies </h2>
-						</div>
-						<p class="card-description">Our team specializes in designing serene spa and pool settings, turning your backyard into a relaxing oasis.</p>
-						<a  href="/Service/service.html" class="cta-btn"><span class="arrow-circle">&#10132;</span> Learn More </a>
-					</div>
-				</div>
-
-				<div class="card">
-					<img src="{{ asset('Image/bbq.avif') }}" alt="BBQ" class="card-image">
-					<div class="card-content">
-						<div class="card-info">
-							<span><i class="fas fa-check-circle"></i> 250+ Clients</span>
-							<span class="dashed-divider"></span>
-							<span>PKR 25k</span>
-						</div>
-						<div class="card-title">
-							<h2>BBQ</h2>
-						</div>
-						<p class="card-description">We offer expert BBQ tailored according to your taste. Mouth watering food and melting flavours.</p>
-						<a  href="/Service/service.html" class="cta-btn"><span class="arrow-circle">&#10132;</span> Learn More </a>
-					</div>
-				</div>
-
-			</div>
+			<div class="cards-wrapper" id="cards-wrapper">
+    <!-- Dynamic cards will be appended here -->
+</div>
 		</div>
 		<!-- Main Content Section -->
 		<div class="testimonial-section">
