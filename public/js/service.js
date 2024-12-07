@@ -1,13 +1,12 @@
-export var  services = [
-
+export const services = [
     {
         name: "Lawn Mowing",
         icon: "./Image/leaves.svg",
         img: "./Image/lawn-mowing.jpeg",
         caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
         description: "Enjoy our lawn mowing.",
-         value: "lawnmowing",
-         price: "250 Pkr"
+        value: "lawnmowing",
+        price: "250 Pkr",
     },
     {
         name: "Landscaping",
@@ -16,7 +15,7 @@ export var  services = [
         caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
         description: "Enjoy our landscaping.",
         value: "landscaping",
-         price: "250 Pkr"
+        price: "250 Pkr",
     },
     {
         name: "BBQ & Sheds",
@@ -25,7 +24,7 @@ export var  services = [
         caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
         description: "Enjoy our BBQ sheds.",
         value: "bbq-sheds",
-         price: "250 Pkr"
+        price: "250 Pkr",
     },
     {
         name: "Spa & Pools",
@@ -34,7 +33,7 @@ export var  services = [
         caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
         description: "Relax in our pools.",
         value: "spa-pools",
-         price: "250 Pkr"
+        price: "250 Pkr",
     },
     {
         name: "Planting",
@@ -43,39 +42,52 @@ export var  services = [
         caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
         description: "Enjoy our planting.",
         value: "planting",
-         price: "250 Pkr"
-    }
+        price: "250 Pkr",
+    },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-
     const serviceListDiv = document.querySelector(".service-list");
+    const tableDiv = document.getElementById("table");
+    const addItemBtn = document.getElementById("addItemBtn");
+    const removeItemBtn = document.getElementById("removeItemBtn");
+    const popup = document.getElementById("popup");
+    const serviceForm = document.getElementById("serviceForm");
+    const addServiceBtn = document.getElementById("addServiceBtn");
+    const closePopup = document.getElementById("closePopup");
 
-    // Clear existing content
+    // Function to display the popup
+    function openPopup() {
+        popup.style.display = "flex";
+        serviceForm.style.display = "flex";
+        serviceForm.style.flexDirection = "column";
+        serviceForm.style.justifyContent = "center";
+        serviceForm.style.alignItems = "center";
+    }
 
-    // Function to create and append service items
+    // Function to close the popup
+    closePopup.addEventListener("click", () => {
+        popup.style.display = "none";
+    });
+
+    // Function to create and append a service item
     const createServiceItem = (service) => {
-        // Main container for service item
         const serviceItem = document.createElement("div");
         serviceItem.classList.add("service-item");
 
-        // Sub-container
         const subDiv = document.createElement("div");
         subDiv.classList.add("sub");
 
-        // Icon image
         const iconImg = document.createElement("img");
         iconImg.src = service.icon;
         iconImg.classList.add("service-img-icon");
         subDiv.appendChild(iconImg);
 
-        // Main image
         const mainImg = document.createElement("img");
         mainImg.src = service.img;
         mainImg.classList.add("service-img");
         subDiv.appendChild(mainImg);
 
-        // Caption div
         const captionDiv = document.createElement("div");
         captionDiv.classList.add("service-img-caption");
         captionDiv.innerHTML = `
@@ -88,45 +100,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
         serviceItem.appendChild(subDiv);
 
-                const description_div=document.createElement("div")
-                description_div.style.marginBottom="40px";
-                serviceItem.appendChild(description_div);
+        const descriptionDiv = document.createElement("div");
+        descriptionDiv.style.marginBottom = "40px";
+        serviceItem.appendChild(descriptionDiv);
 
-
-        // Title and description
         const title = document.createElement("h2");
         title.textContent = service.name;
-        description_div.appendChild(title);
-
+        descriptionDiv.appendChild(title);
 
         const description = document.createElement("p");
         description.innerHTML = service.description;
-        description_div.appendChild(description);
+        descriptionDiv.appendChild(description);
 
-        // Append to the main list
         serviceListDiv.appendChild(serviceItem);
     };
 
+    // Function to create the service table
     const createServiceTable = (services) => {
-        const tableDiv = document.getElementById("table");
+        tableDiv.innerHTML = ""; // Clear existing content
 
         const table = document.createElement("table");
-
-        // Create table head
         const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
+
         const headers = ["Service Name", "Service Price", "Service Description"];
-        headers.forEach(headerText => {
+        headers.forEach((header) => {
             const th = document.createElement("th");
-            th.textContent = headerText;
+            th.textContent = header;
             headerRow.appendChild(th);
         });
+
         thead.appendChild(headerRow);
         table.appendChild(thead);
 
-        // Create table body
         const tbody = document.createElement("tbody");
-        services.forEach(service => {
+        services.forEach((service) => {
             const row = document.createElement("tr");
 
             const nameCell = document.createElement("td");
@@ -143,122 +151,101 @@ document.addEventListener("DOMContentLoaded", () => {
 
             tbody.appendChild(row);
         });
-        table.appendChild(tbody);
 
+        table.appendChild(tbody);
         tableDiv.appendChild(table);
     };
 
-
-    const key = "1234"; // Predefined key for authentication
-
-    // Elements
-    const addItemBtn = document.getElementById("addItemBtn");
-    const removeItemBtn = document.getElementById("removeItemBtn");
-    const popup = document.getElementById("popup");
-    const serviceForm = document.getElementById("serviceForm");
-    const addServiceBtn = document.getElementById("addServiceBtn");
-    const serviceList = document.getElementById("service-list");
-    const closePopup = document.getElementById("closePopup");
-
-
-    // Open the popup for authentication
-    function openPopup() {
-        popup.style.display = "flex";
-        serviceForm.style.display = "flex";
-        serviceForm.style.flexDirection="column";
-        serviceForm.style.justifyContent="center";
-        serviceForm.style.alignItems="center";
-
-    }
-
-    // Close the popup
-    closePopup.addEventListener("click", () => {
-        serviceForm.style.display = "none";
-        popup.style.display = "none";
-
-    });
-
-
-    // Add service to the list
-    addServiceBtn.addEventListener("click", () => {
-
-        const serviceName = document.getElementById("serviceName").value;
-        const servicePrice = document.getElementById("servicePrice").value;
-        const serviceDescription = document.getElementById("serviceDescription").value;
-
-        if (serviceName && servicePrice && serviceDescription) {
-            // Create a new object using the variables
-        let newService = {
-            price:servicePrice,
-        name: serviceName,
-        icon: "./Image/leaves.svg",
-        img: "./Image/landscaping.jpeg",
-        caption: "250+ Client<div class='inline-dashed-vertical-line'></div>",
-        description: serviceDescription,
+    addServiceBtn.addEventListener('click', () => {
+        const serviceName = document.getElementById('serviceName').value;
+        const servicePrice = document.getElementById('servicePrice').value;
+        const serviceDescription = document.getElementById('serviceDescription').value;
+        const key = prompt('Enter your key to add an item:');
+    
+        if (!key) return alert('Key is required.');
+    
+        const newService = {
+            key: key,
+            name: serviceName,
+            price: servicePrice,
+            description: serviceDescription,
         };
-
-
-        // Add the new service to the array
-        services.push(newService);
-
-        // Reset the form
-            document.getElementById("serviceName").value = "";
-            document.getElementById("servicePrice").value = "";
-            document.getElementById("serviceDescription").value = "";
-            serviceListDiv.innerHTML = "";
-            table.innerHTML="";
-            services.forEach(createServiceItem);
-    createServiceTable(services);
-    popup.style.display="none"
-        } else {
-            alert("Please fill in all fields.");
-        }
+    
+        fetch('/add-service', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            body: JSON.stringify(newService),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json(); // Parse the JSON response
+                } else {
+                    return response.json().then((data) => {
+                        throw new Error(data.error || 'Failed to add service.');
+                    });
+                }
+            })
+            .then((data) => {
+                // Update the table with the new service
+                services.push(newService); // Add the new service to the array
+                createServiceTable(services); // Re-render the table with all services
+                alert(data.message || 'Service added successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error.message);
+                alert(error.message);
+            });
     });
-
-    // Remove last service item from the list
+        // Remove last service
     removeItemBtn.addEventListener("click", () => {
-        const enteredKey = prompt("Enter key to remove the last item:");
+        const key = prompt("Enter key to remove the last item:");
 
-        if (enteredKey === key) {
-            const tableDiv = document.getElementById("table"); // Locate the table container
-    const table = tableDiv.querySelector("table");    // Find the table inside the container
-        const tbody = table.querySelector("tbody");   // Find the table body
-
-            // Ensure there's an item to remove
-            if (tbody.lastElementChild && serviceListDiv.lastElementChild) {
-
-                 // Remove last child from tbody and serviceListDiv
-                tbody.removeChild(tbody.lastElementChild);
-                services.pop(); // Remove last service from the array
-                serviceListDiv.removeChild(serviceListDiv.lastElementChild);
-              } else {
-                alert("No items to remove.");
-            }
-        } else {
-            alert("Incorrect key. Cannot remove item.");
-        }
+        fetch('/remove-service', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            body: JSON.stringify({ key }),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    services.pop();
+                    serviceListDiv.lastChild.remove();
+                    createServiceTable(services);
+                } else {
+                    alert("Invalid key. Cannot remove item.");
+                }
+            })
+            .catch((error) => console.error("Error:", error));
     });
 
-    // Open the popup when "Add Item" button is clicked
-    addItemBtn.addEventListener("click", ()=>{
-        const enteredKey = prompt("Enter key to add an item:");
+    // Open popup to add a service
+    addItemBtn.addEventListener("click", () => {
+        const key = prompt("Enter key to add a service:");
 
-        if (enteredKey === key) {
-            openPopup();
-        }
+        fetch('/validate-key', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            body: JSON.stringify({ key }),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    openPopup();
+                } else {
+                    alert("Invalid key.");
+                }
+            })
+            .catch((error) => console.error("Error:", error));
     });
 
-    // Dynamically add services
+    // Initialize services
     services.forEach(createServiceItem);
     createServiceTable(services);
 });
-
-const fetch_services=function(){
-    fetch('/services')
-        .then(response=>{
-            if(!response.ok)throw new Error(response.statusText);
-            return response.json;
-        })
-        .then(services=>{console.log(services);})
-        .catch(err=>{console.error('Error Fetching Services : ',err)})
-}
