@@ -26,7 +26,7 @@
         <div id="popup" class="popup" style="display: none;">
             <div class="popup-content">
                 <div id="serviceForm" class="service-form">
-                    <h3>Add New Service</h3>
+                    <h3 id="serviceHeader">Add New Service</h3>
                     <input type="text" id="serviceName" placeholder="Service Name" required />
                     <input type="text" id="servicePrice" placeholder="Service Price" required />
                     <textarea id="serviceDescription" placeholder="Service Description" required></textarea>

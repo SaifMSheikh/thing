@@ -22,29 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch((error) => console.error("Error fetching services:", error));
     };
 
-    let service_detail_fields={
-        name:document.getElementById('serviceName'),
-        price:document.getElementById('servicePrice'),
-        description:document.getElementById('serviceDescription'),
-        header:document.getElementById('serviceHeader'),
-        submit:document.getElementById('addServiceBtn'),
-    }
     // Open popup for adding service
-    const openPopup = () => {
+    const openPopup = (row) => {
         popup.style.display = "flex";
         serviceForm.style.display = "flex";
         serviceForm.style.flexDirection = "column";
         serviceForm.style.justifyContent = "center";
         serviceForm.style.alignItems = "center";
-        //Reset Popup Content To Default
-        Array(
-            service_detail_fields.name,
-            service_detail_fields.price,
-            service_detail_fields.description
-        ).forEach(elem=>{elem.value='';});
-        service_detail_fields.header.innerHTML='Add New Service';
-        service_detail_fields.submit.innerHTML='Add Service';
-        service_detail_fields.submit.setAttribute('data-service-id',null);
+        if(row!=null){
+            let fields=Array.from(document.getElementById('serviceForm').children)
+                .filter(elem=>elem.type!=null&&elem.type!='submit');
+            for(let i=0;i<row.cells.length;++i)
+                fields.value=row.cells[i].getHTML();
+        }
     };
 
     // Close popup
@@ -97,31 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
         serviceListDiv.appendChild(serviceItem);
     };
 
-    const openPopupUpdate=function(service_id){
-        fetch("/get-service", {
-            method:"POST",
-            headers:{
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": document
-                    .querySelector('meta[name="csrf-token"]')
-                    .getAttribute("content"),
-            },
-            body:JSON.stringify({id:service_id}),
-        })
-            .then(response=>response.json())
-            .then(data=>{
-                if(data.error)throw new Error(data.error);
-                openPopup();
-                service_detail_fields.name.value=data.name;
-                service_detail_fields.price.value=data.price;
-                service_detail_fields.description.value=data.description;
-                service_detail_fields.header.innerHTML='Update Service';
-                service_detail_fields.submit.innerHTML='Update';
-                service_detail_fields.submit.setAttribute('data-service-id',service_id);
-            })
-            .catch(error=>alert(error));
-    }
-
     // Create the service table
     const createServiceTable = (services) => {
         tableDiv.innerHTML = "";
@@ -147,8 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const tbody = document.createElement("tbody");
         services.forEach((service) => {
             const row = document.createElement("tr");
-            row.setAttribute('data-service-id',service.id);
-
+            row.addEventListener('click',openPopup());
             const nameCell = document.createElement("td");
             nameCell.textContent = service.name;
             row.appendChild(nameCell);
@@ -161,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
             descriptionCell.textContent = service.description;
             row.appendChild(descriptionCell);
 
-            row.addEventListener('click',event=>openPopupUpdate(row.getAttribute('data-service-id')));
             tbody.appendChild(row);
         });
 
@@ -189,13 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
             price: servicePrice,
             description: serviceDescription,
         };
-        let req='/add-service';
-        const service_id=parseInt(addServiceBtn.getAttribute('data-service-id'));
-        if(!Number.isNaN(service_id)){
-            newService.id=service_id;
-            req='/set-service';
-        }
-        fetch(req, {
+
+        fetch("/add-service", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -208,10 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response=>response.json())
             .then(data=>{
                 if(data.error)throw new Error(data.error);
-                alert(data.message);
+                alert(data.message || "Service removed successfully!");
                 fetchServices(); // Refresh services
             })
-            .catch(error=>{alert(error);console.error(error)});
+            .catch(error=>alert(error));
     });
 
     // Remove last service
@@ -234,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response=>response.json())
             .then(data=>{
                 if(data.error)throw new Error(data.error);
-                alert(data.message);
+                alert(data.message || "Service removed successfully!");
                 fetchServices(); // Refresh services
             })
             .catch(error=>alert(error));
