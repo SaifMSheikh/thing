@@ -20,8 +20,8 @@ use App\Http\Middleware\EnsureTokenIsValid;
 
 
 Route::get('/services', [ServiceController::class, 'getServices']); // Fetch services
-Route::post('/add-service', [ServiceController::class, 'addService']); // Add a service
-Route::post('/remove-service', [ServiceController::class, 'removeService']); // Remove a service
+Route::post('/add-service', [ServiceController::class, 'addService'])->middleware(EnsureTokenIsValid::class); // Add a service
+Route::post('/remove-service', [ServiceController::class, 'removeService'])->middleware(EnsureTokenIsValid::class); // Remove a service
 
 
 

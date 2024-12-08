@@ -157,13 +157,13 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify(newService),
         })
-            .then((response) => response.json())
-            .then((data) => {
-                alert(data.message || "Service added successfully!");
+            .then(response=>response.json())
+            .then(data=>{
+                if(data.error)throw new Error(data.error);
+                alert(data.message || "Service removed successfully!");
                 fetchServices(); // Refresh services
-                popup.style.display = "none"; // Close popup
             })
-            .catch((error) => console.error("Error adding service:", error));
+            .catch(error=>alert(error));
     });
 
     // Remove last service
@@ -183,12 +183,13 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify({ key, id: lastService.id }),
         })
-            .then((response) => response.json())
-            .then((data) => {
+            .then(response=>response.json())
+            .then(data=>{
+                if(data.error)throw new Error(data.error);
                 alert(data.message || "Service removed successfully!");
                 fetchServices(); // Refresh services
             })
-            .catch((error) => console.error("Error removing service:", error));
+            .catch(error=>alert(error));
     });
 
     // Open popup for adding a service
